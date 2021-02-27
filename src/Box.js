@@ -3,12 +3,12 @@ import { useFrame } from "react-three-fiber";
 
 export default function Box() {
   const mesh = useRef(null);
-	useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01));
+	useFrame(() => (mesh.current.rotation.y += 0.01));
 
   return (
-		<mesh ref={mesh}>
+		<mesh castShadow ref={mesh}>
 			<boxBufferGeometry attach="geometry" args={(1, 1, 1)} />
-			<meshStandardMaterial attach="material" />
+			<meshStandardMaterial attach="material" color="orange"/>
 		</mesh>
 	);
 }
