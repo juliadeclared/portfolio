@@ -68,7 +68,7 @@ const Plane = ({ name, rotation, position }) => {
 				fontSize={0.17}
 				textAlign="center"
 			>
-				{name}
+				{`${name}`.toUpperCase()}
 			</Text>
 		</a.mesh>
 	);
