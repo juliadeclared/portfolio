@@ -7,7 +7,7 @@ import * as THREE from "three";
 import { Canvas, useFrame, extend, useThree } from "react-three-fiber";
 import { useSpring, a } from "react-spring/three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import {softShadows} from "@react-three/drei";
+import {Text} from "@react-three/drei";
 // import About from "./components/About";
 
 extend({ OrbitControls });
@@ -60,6 +60,15 @@ const Plane = ({ name, rotation, position }) => {
 				color={props.color}
 				side={THREE.DoubleSide}
 			/>
+			<Text
+				color="black" // default
+				anchorX="center" // default
+				anchorY="middle" // default
+				depthOffset={-1}
+				materialType="MeshPhongMaterial"
+			>
+				{name}
+			</Text>
 		</a.mesh>
 	);
 };
@@ -90,16 +99,20 @@ const Box = () => {
 		>
 			<Controls />
 			<group>
-				<Plane name="front" position={[0, 0, -0.5009]} rotation={[0, 0, 0]} />
+				<Plane
+					name="front"
+					position={[0, 0, -0.5009]}
+					rotation={[0, Math.PI, 0]}
+				/>
 				<Plane
 					name="back"
 					position={[0, 0, 0.5009]}
-					rotation={[0, 0, Math.PI / 2]}
+					rotation={[Math.PI, -Math.PI, Math.PI]}
 				/>
 				<Plane
 					name="left"
 					position={[-0.5009, 0, -0.0001]}
-					rotation={[0, Math.PI / 2, 0]}
+					rotation={[0, -Math.PI / 2, 0]}
 				/>
 				<Plane
 					name="right"
@@ -112,9 +125,9 @@ const Box = () => {
 					rotation={[Math.PI / 2, 0, 0]}
 				/>
 				<Plane
-					name="top"
+					name="Julia Kravets"
 					position={[0, 0.5009, -0.0001]}
-					rotation={[Math.PI / 2, 0, 0]}
+					rotation={[Math.PI / 2, Math.PI, 0]}
 				/>
 			</group>
 			<boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
@@ -126,9 +139,6 @@ const Box = () => {
 export default function App() {
 	return (
 		<>
-			<div>
-				<h1>hi</h1>
-			</div>
 			<Canvas colorManagement camera={{ position: [-5, 2, 10], fov: 10 }}>
 				<ambientLight intensity={0.3} />
 				<directionalLight position={[0, 10, 5]} intensity={1} />
