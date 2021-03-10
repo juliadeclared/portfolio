@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Dialog, Typography } from '@material-ui/core'
 
 export default function About({ show }) {
 	const [open, setOpen] = useState(show);
@@ -12,10 +13,10 @@ export default function About({ show }) {
 	};
 
 	return (
-		<div open={open} onBackdropClick={handleClickAway}>
+		<Dialog open={open} onBackdropClick={handleClickAway}>
 			<img src={process.env.PUBLIC_URL + "/profileImage.png"} alt="Profile" />
-			<h1>About Me</h1>
-			<p>
+			<Typography variant="h2">About Me</Typography>
+			<Typography variant="h6">
 				I am the founder of the first fully vegan and gluten-free creperie in
 				New York — Little Choc Apothecary. I am also a newly trained Software
 				Engineer! I built my restaurant from the ground up in 2014, at 24 years
@@ -33,7 +34,7 @@ export default function About({ show }) {
 				and rewarding experience. It made me fall even more in love with
 				development, and I’m looking forward to tackling more challenges as a
 				Software Engineer.
-			</p>
-		</div>
+			</Typography>
+		</Dialog>
 	);
 }

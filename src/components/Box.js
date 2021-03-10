@@ -1,59 +1,9 @@
-// const Plane = ({
-// 	name,
-// 	color = 0xffff00,
-// 	rotation = [0, 0, 0],
-// 	position = [0, 0, -10],
-// }) => (
-// 	<mesh name={name} position={position} rotation={rotation}>
-// 		<planeBufferGeometry attach="geometry" args={[10, 10, 10]} />
-// 		<meshBasicMaterial
-// 			attach="material"
-// 			color={color}
-// 			side={THREE.DoubleSide}
-// 		/>
-// 	</mesh>
-// );
-// const Box = (props) => {
-// 	const { tagName: Tag, className, variant, children } = props;
-// 	return (
-// 		<group>
-// 			<Plane name="front" />
-// 			<Plane
-// 				name="left"
-// 				color={0x00ff00}
-// 				position={[-5, 0, -5]}
-// 				rotation={[0, Math.PI / 2, 0]}
-// 			/>
-// 			<Plane
-// 				name="right"
-// 				color={0x00ffff}
-// 				position={[5, 0, -5]}
-// 				rotation={[0, Math.PI / 2, 0]}
-// 			/>
-// 			<Plane
-// 				name="bottom"
-// 				color={0xffccff}
-// 				position={[0, -5, -5]}
-// 				rotation={[Math.PI / 2, 0, 0]}
-// 			/>
-// 			<Plane
-// 				name="top"
-// 				color={0xccccff}
-// 				position={[0, 5, -5]}
-// 				rotation={[Math.PI / 2, 0, 0]}
-// 			/>
-// 		</group>
-// 	);
-// };
-
 import React, { useRef, useState } from "react";
 import * as THREE from "three";
-import { Canvas, useFrame, extend, useThree } from "react-three-fiber";
+import { useFrame, extend, useThree } from "react-three-fiber";
 import { useSpring, a } from "react-spring/three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { Text } from "@react-three/drei";
-import About from "./components/About";
-import Box from "./components/Box";
 
 extend({ OrbitControls });
 
@@ -124,7 +74,7 @@ const Plane = ({ name, rotation, position }) => {
 	);
 };
 
-const Box = () => {
+export default function Box() {
 	const [hovered, setHovered] = useState(false);
 	const [active, setActive] = useState(false);
 	const mesh = useRef(null);
@@ -183,31 +133,6 @@ const Box = () => {
 			</group>
 			<boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
 			<a.meshStandardMaterial wireframe attach="material" color={props.color} />
-			{/* <Billboard
-				follow={true} // Follow the camera (default=true)
-				lockX={false} // Lock the rotation on the x axis (default=false)
-				lockY={false} // Lock the rotation on the y axis (default=false)
-				lockZ={false} // Lock the rotation on the z axis (default=false)
-				args={[2, 1]}
-				position={[0, 0, 0]}
-			/> */}
 		</a.mesh>
 	);
 };
-
-export default function App() {
-	const [showModal, setShowModal] = useState(true);
-
-	return (
-		<>
-			<Canvas colorManagement camera={{ position: [-5, 2, 10], fov: 10 }}>
-				<ambientLight intensity={0.3} />
-				<directionalLight position={[0, 10, 5]} intensity={1} />
-				<pointLight position={[-10, 0, -20]} intensity={0.5} />
-				<pointLight position={[0, -10, 0]} intensity={1.5} />
-				<Box />
-			</Canvas>
-			<About show={showModal} />
-		</>
-	);
-}
