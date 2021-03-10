@@ -10,7 +10,7 @@
     "react-spring": "^8.0.27",
     "react-three-fiber": "^5.3.19",
     "three": "^0.126.0",
-    "tslib": "^1.14.1"
+    "tslib": "^2.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
