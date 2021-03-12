@@ -4,6 +4,9 @@ import { useFrame, extend, useThree } from "react-three-fiber";
 import { useSpring, a } from "react-spring/three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { Text } from "@react-three/drei";
+import { ContextProvider } from "../utils/Context";
+
+import { useStore } from "../utils/Context"
 
 extend({ OrbitControls });
 
@@ -26,51 +29,54 @@ const Controls = () => {
 };
 
 const Plane = ({ name, rotation, position }) => {
+  const { setOpenAbout, setOpenStack, setOpenProjects } = useStore();
 	const [hovered, setHovered] = useState(false);
 	const [active, setActive] = useState(false);
-	const [activePage, setActivePage] = useState(null);
 
 	const props = useSpring({
-		color: hovered || active ? "hotpink" : "orange",
+		color: hovered || active ? "hotpink" : "#ee6c4d",
 	});
 
 	const handleClick = (e) => {
 		e.stopPropagation();
 		setActive(!active);
-		setActivePage(name);
-		console.log(activePage);
+    if (name === "About") setOpenAbout(true)
+		// setActivePage(name);
+    console.log(name)
 	};
 
 	return (
-		<a.mesh
-			name={name}
-			position={position}
-			rotation={rotation}
-			onPointerOver={() => setHovered(true)}
-			onPointerOut={() => setHovered(false)}
-			onClick={handleClick}
-		>
-			<planeBufferGeometry attach="geometry" args={[1, 1, 1]} />
-			<a.meshStandardMaterial
-				attach="material"
-				color={props.color}
-				side={THREE.DoubleSide}
-			/>
-			<Text
-				// color="black"
-				// fillOpacity={0.5}
-				anchorX="center"
-				anchorY="middle"
-				depthOffset={-1}
-				materialType="meshStandardMaterial"
-				font="https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwK4vaqI.woff"
-				maxWidth={1}
-				fontSize={0.17}
-				textAlign="center"
+		<ContextProvider>
+			<a.mesh
+				name={name}
+				position={position}
+				rotation={rotation}
+				onPointerOver={() => setHovered(true)}
+				onPointerOut={() => setHovered(false)}
+				onClick={handleClick}
 			>
-				{`${name}`.toUpperCase()}
-			</Text>
-		</a.mesh>
+				<planeBufferGeometry attach="geometry" args={[1, 1, 1]} />
+				<a.meshStandardMaterial
+					attach="material"
+					color={props.color}
+					side={THREE.DoubleSide}
+				/>
+				<Text
+					// color="#272640"
+					// fillOpacity={0.5}
+					anchorX="center"
+					anchorY="middle"
+					depthOffset={-1}
+					materialType="meshStandardMaterial"
+					font="https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwK4vaqI.woff"
+					maxWidth={1}
+					fontSize={0.17}
+					textAlign="center"
+				>
+					{`${name}`.toUpperCase()}
+				</Text>
+			</a.mesh>
+		</ContextProvider>
 	);
 };
 
@@ -81,7 +87,7 @@ export default function Box() {
 
 	const props = useSpring({
 		// scale: active ? [4, 2, 1] : [1, 1, 1],
-		color: hovered || active ? "hotpink" : "orange",
+		color: hovered || active ? "hotpink" : "#f9dcc4",
 	});
 
 	useFrame(() =>
@@ -91,48 +97,54 @@ export default function Box() {
 	);
 
 	return (
-		<a.mesh
-			ref={mesh}
-			onPointerOver={() => setHovered(true)}
-			onPointerOut={() => setHovered(false)}
-			onClick={() => setActive(!active)}
-			// scale={props.scale}
-		>
-			<Controls />
-			<group>
-				<Plane
-					name="Projects"
-					position={[0, 0, -0.5009]}
-					rotation={[0, Math.PI, 0]}
+		<ContextProvider>
+			<a.mesh
+				ref={mesh}
+				onPointerOver={() => setHovered(true)}
+				onPointerOut={() => setHovered(false)}
+				onClick={() => setActive(!active)}
+				// scale={props.scale}
+			>
+				<Controls />
+				<group>
+					<Plane
+						name="Projects"
+						position={[0, 0, -0.5009]}
+						rotation={[0, Math.PI, 0]}
+					/>
+					<Plane
+						name="Stack"
+						position={[0, 0, 0.5009]}
+						rotation={[Math.PI, -Math.PI, Math.PI]}
+					/>
+					<Plane
+						name="About"
+						position={[-0.5009, 0, -0.0001]}
+						rotation={[0, -Math.PI / 2, 0]}
+					/>
+					<Plane
+						name="Contact"
+						position={[0.5009, 0, -0.0001]}
+						rotation={[0, Math.PI / 2, 0]}
+					/>
+					<Plane
+						name="Thank You"
+						position={[0, -0.5009, -0.0001]}
+						rotation={[Math.PI / 2, 0, 0]}
+					/>
+					<Plane
+						name="Julia Kravets"
+						position={[0, 0.5009, -0.0001]}
+						rotation={[Math.PI / 2, Math.PI, 0]}
+					/>
+				</group>
+				<boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
+				<a.meshStandardMaterial
+					wireframe
+					attach="material"
+					color={props.color}
 				/>
-				<Plane
-					name="Stack"
-					position={[0, 0, 0.5009]}
-					rotation={[Math.PI, -Math.PI, Math.PI]}
-				/>
-				<Plane
-					name="About"
-					position={[-0.5009, 0, -0.0001]}
-					rotation={[0, -Math.PI / 2, 0]}
-				/>
-				<Plane
-					name="Contact"
-					position={[0.5009, 0, -0.0001]}
-					rotation={[0, Math.PI / 2, 0]}
-				/>
-				<Plane
-					name="Thank You"
-					position={[0, -0.5009, -0.0001]}
-					rotation={[Math.PI / 2, 0, 0]}
-				/>
-				<Plane
-					name="Julia Kravets"
-					position={[0, 0.5009, -0.0001]}
-					rotation={[Math.PI / 2, Math.PI, 0]}
-				/>
-			</group>
-			<boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
-			<a.meshStandardMaterial wireframe attach="material" color={props.color} />
-		</a.mesh>
+			</a.mesh>
+		</ContextProvider>
 	);
 };

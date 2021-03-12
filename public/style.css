@@ -10,6 +10,8 @@ html, body, #root {
 }
 
 body {
-  background: #F8CA45;
+  background: #ffb5a7;
   position: fixed;
 }
+
+/* background: #F8CA45; */

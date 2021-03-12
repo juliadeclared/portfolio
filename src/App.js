@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { Canvas } from "react-three-fiber";
+import { useStore } from "./utils/Context";
 
 import Box from "./components/Box";
 import About from "./components/About";
+import Stack from "./components/Stack";
+import Projects from "./components/Projects";
 
 export default function App() {
-	const [showModal, setShowModal] = useState(true);
+  const { openAbout, openStack, openProjects } = useStore();
 
 	return (
 		<>
@@ -16,7 +19,9 @@ export default function App() {
 				<pointLight position={[0, -10, 0]} intensity={1.1} />
 				<Box />
 			</Canvas>
-			<About show={showModal} />
+			<About show={openAbout} />
+			<Stack show={openStack} />
+			<Projects show={openProjects} />
 		</>
 	);
 }
