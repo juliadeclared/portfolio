@@ -14,4 +14,9 @@ body {
   position: fixed;
 }
 
+.stackIcon {
+  width: 100px;
+  height: auto
+}
+
 /* background: #F8CA45; */

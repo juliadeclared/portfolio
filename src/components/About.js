@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { Dialog, Typography } from '@material-ui/core'
+import { Dialog, Typography } from "@material-ui/core";
 
-export default function About({ show }) {
-	const [open, setOpen] = useState(show);
+export default function About({ openAbout, setOpenAbout }) {
+	// const [open, setOpen] = useState(show);
 
-	useEffect(() => {
-		setOpen(show);
-	}, [show]);
+	// useEffect(() => {
+	// 	setOpen(show);
+	// }, [show]);
 
-	const handleClickAway = () => {
-		setOpen(false);
-	};
+	// const handleClickAway = () => {
+	// 	// setOpen(false);
+	// 	setOpenAbout(false);
+	// };
 
 	return (
-		<Dialog open={open} onBackdropClick={handleClickAway}>
+		<Dialog open={openAbout} onBackdropClick={() => setOpenAbout(false)}>
 			<img src={process.env.PUBLIC_URL + "/profileImage.png"} alt="Profile" />
 			<Typography variant="h2">About Me</Typography>
 			<Typography variant="h6">
