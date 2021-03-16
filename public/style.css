@@ -19,4 +19,17 @@ body {
   height: auto
 }
 
+.stackIcon:hover {
+  width: 98px;
+  height: auto
+}
+
+.profileImage {
+  object-fit: cover;
+	border-radius: 50%;
+	height: 400px;
+	width: 400px;
+	align-self: center;
+}
+
 /* background: #F8CA45; */

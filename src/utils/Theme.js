@@ -3,10 +3,10 @@ import { createMuiTheme, fade } from "@material-ui/core/styles";
 export default createMuiTheme({
 	palette: {
 		primary: {
-			main: "#F6A400",
+			main: "#f4acb7",
 		},
 		secondary: {
-			main: "#FBDB9E",
+			main: "#f4acb7",
 		},
 		background: {
 			default: "#FEF5E4",
@@ -14,24 +14,24 @@ export default createMuiTheme({
 	},
 	typography: {
 		h1: {
-			fontFamily: "Changa One",
+			fontFamily: "Sacramento",
 			marginBottom: 5,
 		},
 		h2: {
-			fontFamily: "Changa One",
+			fontFamily: "Sacramento",
 		},
 		h3: {
-			fontFamily: "Jost",
+			fontFamily: "Josefin Slab",
 		},
 		h4: {
-			fontFamily: "Jost",
+			fontFamily: "Josefin Slab",
 		},
 		h5: {
-			fontFamily: "Jost",
+			fontFamily: "Josefin Slab",
 			fontWeight: 600,
 		},
 		h6: {
-			fontFamily: "Jost",
+			fontFamily: "Josefin Slab",
 		},
 	},
 	overrides: {

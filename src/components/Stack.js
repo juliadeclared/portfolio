@@ -3,9 +3,10 @@ import { Dialog, Typography, Grid } from "@material-ui/core";
 
 export default function Stack({ openStack, setOpenStack }) {
 	const icons = [
-		"react_icon.png",
-		"redux_icon.png",
 		"node_icon.png",
+    "react_icon.png",
+		"redux_icon.png",
+		"git_icon.png",
 		"expressjs_icon.png",
 		"sequelize_icon.png",
 		"postgresql_icon.png",
@@ -13,12 +14,11 @@ export default function Stack({ openStack, setOpenStack }) {
 		"css_icon.png",
 		"html_icon.png",
 		"material_ui_icon.png",
-		"git_icon.png",
 	];
 
 	return (
 		<Dialog open={openStack} onBackdropClick={() => setOpenStack(false)}>
-			<Typography variant="h2">STACK</Typography>
+			<Typography variant="h2" justify="center">Stack -</Typography>
 			<Grid container spacing={3} justify="center">
 				{icons.map((icon) => {
 					return (
