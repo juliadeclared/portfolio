@@ -1,17 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Dialog, Typography } from "@material-ui/core";
 
 export default function About({ openAbout, setOpenAbout }) {
-	// const [open, setOpen] = useState(show);
-
-	// useEffect(() => {
-	// 	setOpen(show);
-	// }, [show]);
-
-	// const handleClickAway = () => {
-	// 	// setOpen(false);
-	// 	setOpenAbout(false);
-	// };
 
 	return (
 		<Dialog open={openAbout} onBackdropClick={() => setOpenAbout(false)}>

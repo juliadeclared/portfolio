@@ -1,10 +1,10 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import * as THREE from "three";
 import { useFrame, extend, useThree } from "react-three-fiber";
 import { useSpring, a } from "react-spring/three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { Text } from "@react-three/drei";
-// import { useStore } from "../utils/Context"
+import { useStore } from "../utils/Context";
 
 extend({ OrbitControls });
 
@@ -26,19 +26,17 @@ const Controls = () => {
 	);
 };
 
-const Plane = ({
-	name,
-	rotation,
-	position,
-  store
-	// openAbout,
-	// openStack,
-	// openProjects,
-	// setOpenAbout,
-	// setOpenStack,
-	// setOpenProjects,
-}) => {
-	// const { openAbout, openStack, setOpenAbout, setOpenStack, setOpenProjects } = useStore();
+const Plane = ({ name, rotation, position }) => {
+	const {
+		openAbout,
+		openStack,
+		openProjects,
+		openContact,
+		setOpenAbout,
+		setOpenStack,
+		setOpenProjects,
+		setOpenContact,
+	} = useStore();
 
 	const [hovered, setHovered] = useState(false);
 	const [active, setActive] = useState(false);
@@ -47,20 +45,13 @@ const Plane = ({
 		color: hovered || active ? "hotpink" : "#f4acb7",
 	});
 
-	// console.log(useStore());
-
-	// useEffect(() => {
-	// 	setAbout(true);
-	// }, []);
-
-  console.log(store)
-
 	const handleClick = (e) => {
 		e.stopPropagation();
 		setActive(!active);
-		// if (active && name === "About") store.setOpenAbout(!store.openAbout);
-		// setActivePage(name);
-		console.log(store);
+		if (active && name === "About") setOpenAbout(!openAbout);
+		if (active && name === "Stack") setOpenStack(!openStack);
+		if (active && name === "Projects") setOpenProjects(!openProjects);
+    if (active && name === "Contact") setOpenContact(!openContact);
 	};
 
 	return (
@@ -96,7 +87,7 @@ const Plane = ({
 	);
 };
 
-export default function Box(store) {
+export default function Box() {
 	const [hovered, setHovered] = useState(false);
 	const [active, setActive] = useState(false);
 	const mesh = useRef(null);
@@ -136,9 +127,6 @@ export default function Box(store) {
 					name="About"
 					position={[-0.5009, 0, -0.0001]}
 					rotation={[0, -Math.PI / 2, 0]}
-					// setOpenAbout={setOpenAbout}
-					// openAbout={openAbout}
-          store={store}
 				/>
 				<Plane
 					name="Contact"
@@ -160,4 +148,4 @@ export default function Box(store) {
 			<a.meshStandardMaterial wireframe attach="material" color={props.color} />
 		</a.mesh>
 	);
-};
+}

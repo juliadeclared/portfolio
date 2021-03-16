@@ -3,10 +3,7 @@ import ReactDOM from "react-dom";
 import { ThemeProvider } from "@material-ui/styles";
 import theme from "./utils/Theme";
 import App from "./App";
-// import Box from "../src/components/Box"
-import { ContextProvider } from "../src/utils/Context";
-// import Store from "./utils/Store"
-// import Navbar from "./components/Navbar"
+import { ContextProvider } from "./utils/Context";
 
 ReactDOM.render(
 	<React.StrictMode>

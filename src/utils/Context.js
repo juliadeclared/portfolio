@@ -10,14 +10,17 @@ export function ContextProvider({ children }) {
 	const [openAbout, setOpenAbout] = useState(false);
 	const [openStack, setOpenStack] = useState(false);
 	const [openProjects, setOpenProjects] = useState(false);
+  const [openContact, setOpenContact] = useState(false)
 
 	const value = {
 		openAbout,
 		openStack,
 		openProjects,
+    openContact,
 		setOpenAbout,
 		setOpenStack,
-		setOpenProjects
+		setOpenProjects,
+    setOpenContact
 	};
 
 	return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

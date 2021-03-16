@@ -1,22 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Dialog, Typography, Grid } from "@material-ui/core";
 
 export default function Stack({ openStack, setOpenStack }) {
-	// const [open, setOpen] = useState(show);
-
-	// useEffect(() => {
-	// 	setOpen(show);
-	// }, [show]);
-
-	// const handleClickAway = () => {
-	// 	setOpenStack(false);
-	// };
-
 	const icons = [
 		"react_icon.png",
-		"react_icon.png",
-		"react_icon.png",
-		"react_icon.png",
+		"redux_icon.png",
+		"node_icon.png",
+		"expressjs_icon.png",
+		"sequelize_icon.png",
+		"postgresql_icon.png",
+		"firebase_icon.png",
+		"css_icon.png",
+		"html_icon.png",
+		"material_ui_icon.png",
+		"git_icon.png",
 	];
 
 	return (
@@ -25,7 +22,7 @@ export default function Stack({ openStack, setOpenStack }) {
 			<Grid container spacing={3} justify="center">
 				{icons.map((icon) => {
 					return (
-						<Grid item>
+						<Grid item key={icon}>
 							<img
 								src={`${process.env.PUBLIC_URL}/${icon}`}
 								alt={icon.slice(0, icons[1].length - 4)}

@@ -1,18 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Dialog, Typography } from "@material-ui/core";
 
-export default function Projects({ show }) {
-	const [open, setOpen] = useState(show);
+export default function Projects({ openProjects, setOpenProjects }) {
 
-	useEffect(() => {
-		setOpen(show);
-	}, [show]);
-
-	const handleClickAway = () => {
-		setOpen(false);
-	};
 	return (
-		<Dialog open={open} onBackdropClick={handleClickAway}>
+		<Dialog open={openProjects} onBackdropClick={()=>setOpenProjects(false)} >
 			<Typography>This is the Projects page</Typography>
 		</Dialog>
 	);
