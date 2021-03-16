@@ -3,7 +3,12 @@ import { Dialog, Grid, Typography, Button } from "@material-ui/core";
 
 export default function Projects({ openProjects, setOpenProjects }) {
 	return (
-		<Dialog open={openProjects} onBackdropClick={() => setOpenProjects(false)}>
+		<Dialog
+			open={openProjects}
+			onBackdropClick={() => setOpenProjects(false)}
+			onEscapeKeyDown={() => setOpenProjects(false)}
+			maxWidth="false"
+		>
 			<Typography variant="h2">Projects</Typography>
 			<br />
 
@@ -20,10 +25,22 @@ export default function Projects({ openProjects, setOpenProjects }) {
 			>
 				GitHub
 			</Button>
-			<Grid item-container direction="row">
-				<img src={process.env.PUBLIC_URL + "/iphone_dashboard.png"} alt="dashboard" />
-				<img src={process.env.PUBLIC_URL + "/iphone_gameplay.png"} alt="gameplay" />
-				<img src={process.env.PUBLIC_URL + "/iphone_stats.png"} alt="stats" />
+			<Grid item-container direction="row" spacing={3}>
+				<img
+					src={process.env.PUBLIC_URL + "/iphone_dashboard.png"}
+					alt="dashboard"
+					className="iphoneImg"
+				/>
+				<img
+					src={process.env.PUBLIC_URL + "/iphone_gameplay.png"}
+					alt="gameplay"
+					className="iphoneImg"
+				/>
+				<img
+					src={process.env.PUBLIC_URL + "/iphone_stats.png"}
+					alt="stats"
+					className="iphoneImg"
+				/>
 			</Grid>
 		</Dialog>
 	);
