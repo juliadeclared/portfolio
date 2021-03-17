@@ -97,6 +97,9 @@ export default function Box() {
 		color: hovered || active ? "hotpink" : "#f9dcc4",
 	});
 
+  let date = new Date();
+	let year = date.getFullYear();
+
 	useFrame(() =>
 		hovered || active
 			? (mesh.current.rotation.y += 0)
@@ -134,14 +137,14 @@ export default function Box() {
 					rotation={[0, Math.PI / 2, 0]}
 				/>
 				<Plane
-					name="Thank You"
+					name={`© ${year}`}
 					position={[0, -0.5009, -0.0001]}
-					rotation={[Math.PI / 2, 0, 0]}
+					rotation={[Math.PI / 2, 0, Math.PI/2]}
 				/>
 				<Plane
 					name="Julia Kravets"
 					position={[0, 0.5009, -0.0001]}
-					rotation={[Math.PI / 2, Math.PI, 0]}
+					rotation={[Math.PI / 2, Math.PI, Math.PI / 2]}
 				/>
 			</group>
 			<boxBufferGeometry attach="geometry" args={[1, 1, 1]} />

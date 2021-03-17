@@ -46,6 +46,7 @@ export default function Stack({ openStack, setOpenStack }) {
 	const iconsTwo = [
 		{ name: "TensorFlow JS", img: "tensorflow_icon.png" },
 		{ name: "Three JS", img: "three_icon.png" },
+		{ name: "Framer Motion", img: "framer_icon.png" },
 		{ name: "Heroku", img: "heroku_icon.png" },
 		{ name: "Travis", img: "travis_icon.png" },
 	];

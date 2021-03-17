@@ -17,18 +17,18 @@ export default function App() {
 		openAbout,
 		openStack,
 		openProjects,
-    openContact,
+		openContact,
 		setOpenAbout,
 		setOpenStack,
 		setOpenProjects,
-    setOpenContact
+		setOpenContact,
 	} = useStore();
 
-
+	//position [-5, 3.5, 10]
 	return (
 		<>
-    <div>Double-click any side to find out more</div>
-			<Canvas colorManagement camera={{ position: [-5, 3.5, 10], fov: 10 }}>
+			<div>Double-click any side to find out more</div>
+			<Canvas colorManagement camera={{ position: [-5, 7, 10], fov: 10 }}>
 				<ContextBridge>
 					<ambientLight intensity={0.3} />
 					<directionalLight position={[0, 10, 5]} intensity={1} />
@@ -40,7 +40,7 @@ export default function App() {
 			<About openAbout={openAbout} setOpenAbout={setOpenAbout} />
 			<Stack openStack={openStack} setOpenStack={setOpenStack} />
 			<Projects openProjects={openProjects} setOpenProjects={setOpenProjects} />
-      <Contact openContact={openContact} setOpenContact={setOpenContact}/>
+			<Contact openContact={openContact} setOpenContact={setOpenContact} />
 		</>
 	);
 };
