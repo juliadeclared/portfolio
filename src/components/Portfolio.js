@@ -1,8 +1,10 @@
 import React, { useRef } from "react";
 import { Grid, Typography, Button } from "@material-ui/core";
 import { motion } from "framer-motion";
+import { useStore } from "../utils/Context";
 
 export default function Portfolio() {
+  const { matches } = useStore();
   const constraintsRef = useRef(null);
 
 	const portfolioStack = [
@@ -35,13 +37,14 @@ export default function Portfolio() {
 	];
   return (
 		<>
-			<Grid container direction="row">
-				<Grid item container direction="column" xs={6}>
+			<Grid container direction={matches ? "column" : "row"}>
+				<Grid item container direction="column" xs={matches ? 11 : 6}>
 					<br />
-					<Grid item container alignItems="baseline">
+					<Grid item container alignItems="baseline" justify={matches ? "center" : "left"}>
 						<Typography variant="h3">Portfolio | </Typography>
 						<Typography variant="h4"> | Full Stack SDE</Typography>
 					</Grid>
+          {matches && <br/>}
 					<Typography variant="h6">
 						You’re lookin’ at it! For my portfolio site, I wanted to show off my
 						creativity while learning some new technologies. I really enjoy the
@@ -63,10 +66,15 @@ export default function Portfolio() {
 						GitHub
 					</Button>
 				</Grid>
-				<Grid item xs={6} style={{ height: "450px" }} ref={constraintsRef}>
+				<Grid
+					item
+					xs={6}
+					style={{ height: matches ? "100px" : "450px" }}
+					ref={constraintsRef}
+				>
 					{portfolioStack.map((icon) => {
 						return (
-							<Grid item key={icon.name}>
+							<Grid item container key={icon.name}>
 								<motion.div
 									className="iconBg"
 									drag
@@ -85,8 +93,8 @@ export default function Portfolio() {
 									}}
 									animate={{
 										opacity: 1,
-										x: icon.x,
-										y: icon.y,
+										x: matches ? 70 : icon.x,
+										y: matches ? 10 : icon.y,
 										scale: icon.scale,
 										transition: {
 											type: "spring",

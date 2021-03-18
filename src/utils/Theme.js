@@ -1,6 +1,22 @@
-import { createMuiTheme, fade } from "@material-ui/core/styles";
+import { createMuiTheme} from "@material-ui/core/styles";
+import createBreakpoints from "@material-ui/core/styles/createBreakpoints";
+
+const customBreakpointValues = {
+	values: {
+		xs: 0,
+		sm: 600,
+		md: 960,
+		lg: 1280,
+		xl: 1920,
+	},
+};
+
+const breakpoints = createBreakpoints({ ...customBreakpointValues });
 
 export default createMuiTheme({
+	breakpoints: {
+		...customBreakpointValues,
+	},
 	palette: {
 		primary: {
 			main: "#f6bd60",
@@ -16,22 +32,43 @@ export default createMuiTheme({
 		h1: {
 			fontFamily: "Sacramento",
 			marginBottom: 5,
+			[breakpoints.down("sm")]: {
+				textAlign: "center",
+			},
 		},
 		h2: {
 			fontFamily: "Sacramento",
+			[breakpoints.down("sm")]: {
+				fontSize: 42,
+				textAlign: "center",
+			},
 		},
 		h3: {
 			fontFamily: "Josefin Slab",
+			[breakpoints.down("sm")]: {
+				fontSize: 34,
+				textAlign: "center",
+			},
 		},
 		h4: {
 			fontFamily: "Josefin Slab",
+			[breakpoints.down("sm")]: {
+				fontSize: 20,
+				textAlign: "center",
+			},
 		},
 		h5: {
 			fontFamily: "Josefin Slab",
 			fontWeight: 600,
+			[breakpoints.down("sm")]: {
+				textAlign: "center",
+			},
 		},
 		h6: {
 			fontFamily: "Josefin Slab",
+			[breakpoints.down("sm")]: {
+				textAlign: "center",
+			},
 		},
 	},
 	overrides: {
@@ -60,16 +97,6 @@ export default createMuiTheme({
 				paddingBottom: "5%",
 			},
 		},
-		MuiPaper: {
-			root: {
-				opacity: fade("#FFFFFF", 0.7),
-			},
-		},
-		MuiFormControl: {
-			root: {
-				margin: "normal",
-			},
-		},
 	},
 	props: {
 		MuiButton: {
@@ -78,8 +105,8 @@ export default createMuiTheme({
 		},
 		MuiTextField: {
 			variant: "outlined",
-			size: "small",
-			margin: "dense",
+			size: "medium",
+			margin: "normal",
 		},
 	},
 });

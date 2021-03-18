@@ -1,8 +1,10 @@
 import React, {useRef} from "react";
 import { Grid, Typography, Button } from "@material-ui/core";
 import { motion } from "framer-motion";
+import { useStore } from "../utils/Context";
 
 export default function SignBee() {
+  const {matches} = useStore()
   const constraintsRef = useRef(null)
 
 	const signBeeStack = [
@@ -30,13 +32,19 @@ export default function SignBee() {
 
 	return (
 		<>
-			<Grid container direction="row">
-				<Grid item container direction="column" xs={6}>
+			<Grid container direction={matches ? "column" : "row"}>
+				<Grid item container direction="column" xs={matches ? 11 : 6}>
 					<br />
-					<Grid item container alignItems="baseline">
+					<Grid
+						item
+						container
+						alignItems="baseline"
+						justify={matches ? "center" : "left"}
+					>
 						<Typography variant="h3">SignBee | </Typography>
 						<Typography variant="h4"> | Full Stack SDE</Typography>
 					</Grid>
+					{matches && <br />}
 					<Typography variant="h6">
 						American Sign Language (ASL) teaching app akin to Duolingo. A
 						progressive web application allowing users to learn the ASL alphabet
@@ -52,7 +60,7 @@ export default function SignBee() {
 						Team: Julia Kravets, Leon Zhao, Naomi Diaz and Goncagul "Gloria" Ay
 					</Typography>
 					<br />
-					<Grid item>
+					<Grid item align="center">
 						<Button href="https://signbee-79d6e.web.app/">Play</Button>
 						<Button
 							variant="outlined"
@@ -68,10 +76,15 @@ export default function SignBee() {
 						</Button>
 					</Grid>
 				</Grid>
-				<Grid item xs={6} style={{ height: "450px" }} ref={constraintsRef}>
+				<Grid
+					item
+					xs={6}
+					style={{ height: matches ? "100px" : "450px" }}
+					ref={constraintsRef}
+				>
 					{signBeeStack.map((icon) => {
 						return (
-							<Grid item key={icon.name}>
+							<Grid item container key={icon.name}>
 								<motion.div
 									className="iconBg"
 									drag
@@ -90,8 +103,8 @@ export default function SignBee() {
 									}}
 									animate={{
 										opacity: 1,
-										x: icon.x,
-										y: icon.y,
+										x: matches ? 70 : icon.x,
+										y: matches ? 10 : icon.y,
 										scale: icon.scale,
 										transition: {
 											type: "spring",
@@ -111,7 +124,7 @@ export default function SignBee() {
 				</Grid>
 			</Grid>
 
-			<Grid item-container direction="row" align="center">
+			<Grid item direction={matches ? "column" : "row"} align="center">
 				<motion.img
 					src={process.env.PUBLIC_URL + "/iphone_dashboard.png"}
 					alt="dashboard"

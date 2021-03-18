@@ -28,7 +28,6 @@ export default function App() {
 		setOpenContact,
 	} = useStore();
 
-	//position [-5, 3.5, 10]
 	return (
 		<>
 			<Grid container alignItems="center">
@@ -38,7 +37,8 @@ export default function App() {
 					onMouseLeave={() => setShow(false)}
 				>
 					<HelpIcon
-						style={{ fontSize: 50, margin: "10px", color: "#4a4e69" }}
+						style={{ fontSize: 50, margin: "10px"}}
+            color="secondary"
 					/>
 				</motion.div>
 				{show && (
@@ -58,7 +58,7 @@ export default function App() {
 					<ambientLight intensity={0.3} />
 					<directionalLight position={[0, 10, 5]} intensity={1} />
 					<pointLight position={[-10, 0, -20]} intensity={0.7} />
-					<pointLight position={[0, -10, 0]} intensity={1.1} /> */}
+					<pointLight position={[0, -10, 0]} intensity={1.1} />
 					<Box />
 				</ContextBridge>
 			</Canvas>
