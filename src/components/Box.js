@@ -51,7 +51,7 @@ const Plane = ({ name, rotation, position }) => {
 		if (active && name === "About") setOpenAbout(!openAbout);
 		if (active && name === "Stack") setOpenStack(!openStack);
 		if (active && name === "Projects") setOpenProjects(!openProjects);
-    if (active && name === "Contact") setOpenContact(!openContact);
+		if (active && name === "Contact") setOpenContact(!openContact);
 	};
 
 	return (
@@ -61,7 +61,7 @@ const Plane = ({ name, rotation, position }) => {
 			rotation={rotation}
 			onPointerOver={() => setHovered(true)}
 			onPointerOut={() => setHovered(false)}
-			onClick={handleClick}
+			onPointerDown={handleClick}
 		>
 			<planeBufferGeometry attach="geometry" args={[1, 1, 1]} />
 			<a.meshStandardMaterial
@@ -97,7 +97,7 @@ export default function Box() {
 		color: hovered || active ? "hotpink" : "#f9dcc4",
 	});
 
-  let date = new Date();
+	let date = new Date();
 	let year = date.getFullYear();
 
 	useFrame(() =>
@@ -139,7 +139,7 @@ export default function Box() {
 				<Plane
 					name={`© ${year}`}
 					position={[0, -0.5009, -0.0001]}
-					rotation={[Math.PI / 2, 0, Math.PI/2]}
+					rotation={[Math.PI / 2, 0, Math.PI / 2]}
 				/>
 				<Plane
 					name="Julia Kravets"

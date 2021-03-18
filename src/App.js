@@ -34,7 +34,7 @@ export default function App() {
 			<Grid container alignItems="center">
 				<motion.div
 					whileHover={{ scale: 1.1 }}
-					onClick={() => setShow(true)}
+					onClick={() => setShow(!show)}
 					onMouseLeave={() => setShow(false)}
 				>
 					<HelpIcon
