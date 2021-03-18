@@ -3,13 +3,13 @@ import { createMuiTheme, fade } from "@material-ui/core/styles";
 export default createMuiTheme({
 	palette: {
 		primary: {
-			main: "#F8CA45",
+			main: "#f6bd60",
 		},
 		secondary: {
-			main: "#f4acb7",
+			main: "#84a59d",
 		},
 		background: {
-			default: "#FEF5E4",
+			default: "#ffb5a7",
 		},
 	},
 	typography: {

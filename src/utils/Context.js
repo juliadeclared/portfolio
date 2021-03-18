@@ -8,7 +8,7 @@ export function useStore() {
 
 export function ContextProvider({ children }) {
 	const [openAbout, setOpenAbout] = useState(false);
-	const [openStack, setOpenStack] = useState(true);
+	const [openStack, setOpenStack] = useState(false);
 	const [openProjects, setOpenProjects] = useState(false);
   const [openContact, setOpenContact] = useState(false)
 

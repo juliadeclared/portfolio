@@ -70,7 +70,7 @@ const Plane = ({ name, rotation, position }) => {
 				side={THREE.DoubleSide}
 			/>
 			<Text
-				// color="#f6bd60"
+				color="#fff8dc"
 				// fillOpacity={0.5}
 				anchorX="center"
 				anchorY="middle"

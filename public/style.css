@@ -48,4 +48,14 @@ body {
   padding: 10px;
 }
 
+#hint {
+  background: #fff8dc;
+  border-radius: 50px;
+  padding-right: 15px;
+  padding-left: 52px;
+  height: 44px;
+  margin-left: -57px;
+  z-index: -1;
+}
+
 /* background: #F8CA45; */

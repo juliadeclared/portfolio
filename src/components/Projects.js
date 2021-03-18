@@ -49,7 +49,7 @@ export default function Projects({ openProjects, setOpenProjects }) {
 				open={openProjects}
 				onBackdropClick={() => setOpenProjects(false)}
 				onEscapeKeyDown={() => setOpenProjects(false)}
-				maxWidth="false"
+				maxWidth={false}
 			>
 				<Grid container justify="space-between" alignItems="center">
 					<motion.div whileHover={{ scale: 1.3 }}>

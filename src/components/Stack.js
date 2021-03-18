@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Dialog, Typography, Grid } from "@material-ui/core";
 import { motion } from "framer-motion";
 
@@ -14,35 +14,37 @@ const stackIconVariants = {
 	visible: {
 		opacity: 1,
 		x: 0,
-		// scale: [0, 1, 0.5, 1],
-		transition: {
-			type: "spring",
-			delay: 0.5,
-			// times: [0, 0.1, 0.9, 1],
-		},
 	},
-	hover: {
-		scale: 1.2,
-	},
+	transition: {
+		type: "spring",
+		delay: 1,
+	}
 };
 
 const titleVariants = {
-	hidden: {
+	hidden1: {
 		opacity: 0,
 		y: "100vh",
+	},
+	hidden2: {
+		opacity: 0,
+		y: "-100vh",
 	},
 	visible: {
 		opacity: 1,
 		y: 0,
 		transition: {
 			type: "spring",
-			delay: 2,
+			delay: 0.3,
+			striffness: 50,
 		},
 	},
 };
 
 export default function Stack({ openStack, setOpenStack }) {
 	const [selectedIcon, setSelectedIcon] = useState(".");
+	const constraintsRef = useRef(null);
+	const constraintsRef2 = useRef(null);
 
 	const icons = [
 		{ name: "Node JS", img: "node_icon.png" },
@@ -71,9 +73,9 @@ export default function Stack({ openStack, setOpenStack }) {
 			open={openStack}
 			onBackdropClick={() => setOpenStack(false)}
 			onEscapeKeyDown={() => setOpenStack(false)}
-			maxWidth="false"
+			maxWidth="lg"
 		>
-			<motion.div variants={titleVariants} initial="hidden" animate="visible">
+			<motion.div variants={titleVariants} initial="hidden1" animate="visible">
 				<Typography variant="h2" align="center">
 					Technologies I know
 				</Typography>
@@ -81,7 +83,7 @@ export default function Stack({ openStack, setOpenStack }) {
 			<Typography variant="h5" align="center">
 				{selectedIcon}
 			</Typography>
-			<Grid container spacing={3} justify="center">
+			<Grid container spacing={3} justify="center" ref={constraintsRef}>
 				{icons.map((icon) => {
 					return (
 						<Grid item key={icon.name}>
@@ -89,11 +91,15 @@ export default function Stack({ openStack, setOpenStack }) {
 								variants={stackIconVariants}
 								className="iconBg"
 								drag
-								whileHover="hover"
+								dragConstraints={constraintsRef}
 								initial="hidden"
 								animate="visible"
+								transition="transition"
 								onMouseEnter={() => setSelectedIcon(icon.name)}
 								onMouseLeave={() => setSelectedIcon(".")}
+								whileHover={{
+									sacle: 1.2,
+								}}
 							>
 								<motion.img
 									src={`${process.env.PUBLIC_URL}/stackIcons/${icon.img}`}
@@ -106,11 +112,14 @@ export default function Stack({ openStack, setOpenStack }) {
 				})}
 			</Grid>
 			<br />
-			<Typography variant="h2" align="center">
-				Technologies I am familiar with
-			</Typography>
+      <br />
+			<motion.div variants={titleVariants} initial="hidden2" animate="visible">
+				<Typography variant="h2" align="center">
+					Technologies I am familiar with
+				</Typography>
+			</motion.div>
 			<br />
-			<Grid container spacing={3} justify="center">
+			<Grid container spacing={3} justify="center" ref={constraintsRef2}>
 				{iconsTwo.map((icon) => {
 					return (
 						<Grid item key={icon.name}>
@@ -118,11 +127,12 @@ export default function Stack({ openStack, setOpenStack }) {
 								variants={stackIconVariants}
 								className="iconBg"
 								drag
-								whileHover="hover"
+								dragConstraints={constraintsRef2}
 								initial="hidden2"
 								animate="visible"
 								onMouseEnter={() => setSelectedIcon(icon.name)}
 								onMouseLeave={() => setSelectedIcon(".")}
+                whileHover={{ scale: 1.2 }}
 							>
 								<motion.img
 									src={`${process.env.PUBLIC_URL}/stackIcons/${icon.img}`}
