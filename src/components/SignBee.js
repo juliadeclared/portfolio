@@ -1,30 +1,82 @@
-import React, {useRef} from "react";
+import React, { useRef } from "react";
 import { Grid, Typography, Button } from "@material-ui/core";
 import { motion } from "framer-motion";
 import { useStore } from "../utils/Context";
 
 export default function SignBee() {
-  const {matches} = useStore()
-  const constraintsRef = useRef(null)
+	const { matches } = useStore();
+	const constraintsRef = useRef(null);
 
 	const signBeeStack = [
 		{
 			scale: 1.2,
 			x: 50,
 			y: 0,
+			xx: 50,
+			yy: 50,
 			name: "TensorFlow JS",
 			img: "tensorflow_icon.png",
 		},
-		{ scale: 1, x: 400, y: -150, name: "Node JS", img: "node_icon.png" },
-		{ scale: 1.3, x: 240, y: -175, name: "React JS", img: "react_icon.png" },
-		{ scale: 0.8, x: 500, y: -300, name: "Git / GitHub", img: "git_icon.png" },
-		{ scale: 1.1, x: 390, y: -325, name: "Firebase", img: "firebase_icon.png" },
-		{ scale: 0.6, x: 240, y: -800, name: "CSS", img: "css_icon.png" },
-		{ scale: 0.5, x: 190, y: -600, name: "HTML", img: "html_icon.png" },
+		{
+			scale: 1,
+			x: 400,
+			y: -150,
+			xx: 110,
+			yy: 40,
+			name: "Node JS",
+			img: "node_icon.png",
+		},
+		{
+			scale: 1.3,
+			x: 240,
+			y: -175,
+			xx: 25,
+			yy: -10,
+			name: "React JS",
+			img: "react_icon.png",
+		},
+		{
+			scale: 0.8,
+			x: 500,
+			y: -300,
+			xx: -10,
+			yy: -210,
+			name: "Git / GitHub",
+			img: "git_icon.png",
+		},
+		{
+			scale: 1.1,
+			x: 390,
+			y: -325,
+			xx: 125,
+			yy: -250,
+			name: "Firebase",
+			img: "firebase_icon.png",
+		},
+		{
+			scale: 0.6,
+			x: 240,
+			y: -800,
+			xx: 180,
+			yy: -205,
+			name: "CSS",
+			img: "css_icon.png",
+		},
+		{
+			scale: 0.5,
+			x: 190,
+			y: -600,
+			xx: 220,
+			yy: -350,
+			name: "HTML",
+			img: "html_icon.png",
+		},
 		{
 			scale: 0.9,
 			x: 40,
 			y: -850,
+			xx: 200,
+			yy: -500,
 			name: "Material UI",
 			img: "material_ui_icon.png",
 		},
@@ -79,12 +131,12 @@ export default function SignBee() {
 				<Grid
 					item
 					xs={6}
-					style={{ height: matches ? "100px" : "450px" }}
+					style={{ height: matches ? "210px" : "450px" }}
 					ref={constraintsRef}
 				>
 					{signBeeStack.map((icon) => {
 						return (
-							<Grid item container key={icon.name}>
+							<Grid item container key={icon.name} direction="row">
 								<motion.div
 									className="iconBg"
 									drag
@@ -103,9 +155,9 @@ export default function SignBee() {
 									}}
 									animate={{
 										opacity: 1,
-										x: matches ? 70 : icon.x,
-										y: matches ? 10 : icon.y,
-										scale: icon.scale,
+										x: matches ? icon.xx : icon.x,
+										y: matches ? icon.yy : icon.y,
+										scale: matches ? 1 : icon.scale,
 										transition: {
 											type: "spring",
 											delay: Math.random(),

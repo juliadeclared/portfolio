@@ -42,7 +42,8 @@ const titleVariants = {
 };
 
 export default function Stack({ openStack, setOpenStack }) {
-	const [selectedIcon, setSelectedIcon] = useState(".");
+	const [selectedIcon, setSelectedIcon] = useState("");
+  const [selectedIcon2, setSelectedIcon2] = useState("");
 	const constraintsRef = useRef(null);
 	const constraintsRef2 = useRef(null);
 
@@ -80,9 +81,11 @@ export default function Stack({ openStack, setOpenStack }) {
 					Technologies I know
 				</Typography>
 			</motion.div>
-			<Typography variant="h5" align="center">
-				{selectedIcon}
-			</Typography>
+			<div id="iconName">
+				<Typography variant="h5" align="center">
+					{selectedIcon}
+				</Typography>
+			</div>
 			<Grid container spacing={3} justify="center" ref={constraintsRef}>
 				{icons.map((icon) => {
 					return (
@@ -96,7 +99,7 @@ export default function Stack({ openStack, setOpenStack }) {
 								animate="visible"
 								transition="transition"
 								onMouseEnter={() => setSelectedIcon(icon.name)}
-								onMouseLeave={() => setSelectedIcon(".")}
+								onMouseLeave={() => setSelectedIcon("")}
 								whileHover={{
 									sacle: 1.2,
 								}}
@@ -112,13 +115,18 @@ export default function Stack({ openStack, setOpenStack }) {
 				})}
 			</Grid>
 			<br />
-      <br />
+			<br />
 			<motion.div variants={titleVariants} initial="hidden2" animate="visible">
 				<Typography variant="h2" align="center">
 					Technologies I am familiar with
 				</Typography>
 			</motion.div>
-			<br />
+			<div id="iconName">
+				<Typography variant="h5" align="center">
+					{selectedIcon2}
+				</Typography>
+			</div>
+			
 			<Grid container spacing={3} justify="center" ref={constraintsRef2}>
 				{iconsTwo.map((icon) => {
 					return (
@@ -130,9 +138,9 @@ export default function Stack({ openStack, setOpenStack }) {
 								dragConstraints={constraintsRef2}
 								initial="hidden2"
 								animate="visible"
-								onMouseEnter={() => setSelectedIcon(icon.name)}
-								onMouseLeave={() => setSelectedIcon(".")}
-                whileHover={{ scale: 1.2 }}
+								onMouseEnter={() => setSelectedIcon2(icon.name)}
+								onMouseLeave={() => setSelectedIcon2("")}
+								whileHover={{ scale: 1.2 }}
 							>
 								<motion.img
 									src={`${process.env.PUBLIC_URL}/stackIcons/${icon.img}`}

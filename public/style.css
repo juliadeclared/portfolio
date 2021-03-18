@@ -35,6 +35,10 @@ body {
 	pointer-events: none;
 }
 
+#iconName {
+  min-height: 40px;
+}
+
 .profileImage {
 	object-fit: cover;
 	border-radius: 50%;
@@ -74,12 +78,12 @@ body {
 }
 
 .iconBg {
-	width: 100px;
-	height: 100px;
+	width: 70px;
+	height: 70px;
 }
 
 .stackIcon {
-	width: 60px;
+	width: 50px;
 	height: auto;
 }
 
@@ -88,3 +92,5 @@ body {
 	padding: 10px;
 }
 }
+
+

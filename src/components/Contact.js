@@ -9,23 +9,23 @@ export default function Contact({ openContact, setOpenContact }) {
 	const nameRef = useRef();
 	const messageRef = useRef();
 
-	const sendMessage = async (name, email, message) => {
+	// const sendMessage = async (name, email, message) => {
 
-    const mailRef = await db.collection("mail");
+  //   const mailRef = await db.collection("mail");
 
-    try {
-      await mailRef
-			.add({
-				to: "juliaakravets@gmail.com",
-				message: {
-					subject: "Hello from Firebase!",
-					text: "This is the plaintext section of the email body.",
-					html: "This is the <code>HTML</code> section of the email body.",
-				},
-			})
-    } catch (error) {
-      console.log("oh noes!", error)
-    }
+  //   try {
+  //     await mailRef
+	// 		.add({
+	// 			to: "juliaakravets@gmail.com",
+	// 			message: {
+	// 				subject: "Hello from Firebase!",
+	// 				text: "This is the plaintext section of the email body.",
+	// 				html: "This is the <code>HTML</code> section of the email body.",
+	// 			},
+	// 		})
+  //   } catch (error) {
+  //     console.log("oh noes!", error)
+  //   }
 
     
 			// .then(() => console.log("Queued email for delivery!"));
@@ -51,16 +51,19 @@ export default function Contact({ openContact, setOpenContact }) {
 // 			// });
 
 //       console.log("doc id", res.id)
-	};
+	// };
 
   const handleSubmit = async (e) => {
-    // e.preventDefault()
-    sendMessage(
-      nameRef.current.value,
-      emailRef.current.value,
-      messageRef.current.value
-    )
-    console.log(messageRef.current.value)
+    e.preventDefault()
+    // sendMessage(
+    //   nameRef.current.value,
+    //   emailRef.current.value,
+    //   messageRef.current.value
+    // )
+
+    // const message = `You have a new message from ${nameRef.current.value}! ${messageRef.current.value}${emailRef.current.value}`;
+
+    // return `mailto:juliaakravets@gmail.com?subject=${nameRef.current.value}&body=hi`;
   }
 
   

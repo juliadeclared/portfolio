@@ -12,18 +12,62 @@ export default function Portfolio() {
 			scale: 1.2,
 			x: 50,
 			y: 0,
+			xx: 60,
+			yy: 50,
 			name: "Three JS",
 			img: "three_icon.png",
 		},
-		{ scale: 1, x: 400, y: -150, name: "Node JS", img: "node_icon.png" },
-		{ scale: 1.3, x: 240, y: -175, name: "React JS", img: "react_icon.png" },
-		{ scale: 0.8, x: 500, y: -300, name: "Git / GitHub", img: "git_icon.png" },
-		{ scale: 1.1, x: 390, y: -325, name: "Firebase", img: "firebase_icon.png" },
-		{ scale: 0.6, x: 190, y: -450, name: "CSS", img: "css_icon.png" },
+		{
+			scale: 1,
+			x: 400,
+			y: -150,
+			xx: -10,
+			yy: -70,
+			name: "Node JS",
+			img: "node_icon.png",
+		},
+		{
+			scale: 1.3,
+			x: 240,
+			y: -175,
+			xx: 125,
+			yy: -140,
+			name: "React JS",
+			img: "react_icon.png",
+		},
+		{
+			scale: 0.8,
+			x: 500,
+			y: -300,
+			xx: 220,
+			yy: -205,
+			name: "Git / GitHub",
+			img: "git_icon.png",
+		},
+		{
+			scale: 1.1,
+			x: 390,
+			y: -325,
+			xx: 210,
+			yy: -150,
+			name: "Firebase",
+			img: "firebase_icon.png",
+		},
+		{
+			scale: 0.6,
+			x: 190,
+			y: -450,
+			xx: 150,
+			yy: -270,
+			name: "CSS",
+			img: "css_icon.png",
+		},
 		{
 			scale: 0.8,
 			x: 240,
 			y: -960,
+			xx: 80,
+			yy: -280,
 			name: "Framer Motion",
 			img: "framer_icon.png",
 		},
@@ -31,6 +75,8 @@ export default function Portfolio() {
 			scale: 0.9,
 			x: 40,
 			y: -850,
+			xx: 0,
+			yy: -380,
 			name: "Material UI",
 			img: "material_ui_icon.png",
 		},
@@ -69,7 +115,7 @@ export default function Portfolio() {
 				<Grid
 					item
 					xs={6}
-					style={{ height: matches ? "100px" : "450px" }}
+					style={{ height: matches ? "200px" : "450px" }}
 					ref={constraintsRef}
 				>
 					{portfolioStack.map((icon) => {
@@ -93,9 +139,9 @@ export default function Portfolio() {
 									}}
 									animate={{
 										opacity: 1,
-										x: matches ? 70 : icon.x,
-										y: matches ? 10 : icon.y,
-										scale: icon.scale,
+										x: matches ? icon.xx : icon.x,
+										y: matches ? icon.yy : icon.y,
+										scale: matches ? 1 : icon.scale,
 										transition: {
 											type: "spring",
 											delay: Math.random(),

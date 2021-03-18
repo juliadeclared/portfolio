@@ -26,6 +26,7 @@ export default function App() {
 		setOpenStack,
 		setOpenProjects,
 		setOpenContact,
+    matches
 	} = useStore();
 
 	return (
@@ -37,8 +38,8 @@ export default function App() {
 					onMouseLeave={() => setShow(false)}
 				>
 					<HelpIcon
-						style={{ fontSize: 50, margin: "10px"}}
-            color="secondary"
+						style={{ fontSize: 50, margin: "10px" }}
+						color="secondary"
 					/>
 				</motion.div>
 				{show && (
@@ -47,13 +48,16 @@ export default function App() {
 						initial={{ scale: 0, x: "-14vw" }}
 						animate={{ scale: 1, x: 0 }}
 					>
-						<Typography variant="h5" style={{ marginTop: "10px" }}>
+						<Typography variant="h5" style={{ marginTop: "10px", fontSize: matches ? "18px" : "h5" }}>
 							Double-click any side to find out more
 						</Typography>
 					</motion.div>
 				)}
 			</Grid>
-			<Canvas colorManagement camera={{ position: [-5, 7, 10], fov: 10 }}>
+			<Canvas
+				colorManagement
+				camera={{ position: [-5, 7, 10], fov: matches ? 15 : 10 }}
+			>
 				<ContextBridge>
 					<ambientLight intensity={0.3} />
 					<directionalLight position={[0, 10, 5]} intensity={1} />
