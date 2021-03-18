@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Dialog, Grid, Typography, Button } from "@material-ui/core";
+import { Dialog, Grid, Typography } from "@material-ui/core";
 import { ArrowForwardIos, ArrowBackIos } from "@material-ui/icons";
+import { motion } from "framer-motion";
 import SignBee from "./SignBee";
 import Portfolio from "./Portfolio";
-import { motion } from "framer-motion";
 
 const projectVariants = {
 	hiddenLeft: {
@@ -51,12 +51,16 @@ export default function Projects({ openProjects, setOpenProjects }) {
 				onEscapeKeyDown={() => setOpenProjects(false)}
 				maxWidth="false"
 			>
-				<Grid container justify="space-between">
-					<ArrowBackIos onClick={scrollLeft} />
+				<Grid container justify="space-between" alignItems="center">
+					<motion.div whileHover={{ scale: 1.3 }}>
+						<ArrowBackIos onClick={scrollLeft} />
+					</motion.div>
 					<Typography variant="h2" align="center">
 						Projects
 					</Typography>
-					<ArrowForwardIos onClick={scrollRight} />
+					<motion.div whileHover={{ scale: 1.3 }}>
+						<ArrowForwardIos onClick={scrollRight} />
+					</motion.div>
 				</Grid>
 				<br />
 				{activeComponent === 1 && (

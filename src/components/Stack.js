@@ -26,6 +26,21 @@ const stackIconVariants = {
 	},
 };
 
+const titleVariants = {
+	hidden: {
+		opacity: 0,
+		y: "100vh",
+	},
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: {
+			type: "spring",
+			delay: 2,
+		},
+	},
+};
+
 export default function Stack({ openStack, setOpenStack }) {
 	const [selectedIcon, setSelectedIcon] = useState(".");
 
@@ -58,7 +73,7 @@ export default function Stack({ openStack, setOpenStack }) {
 			onEscapeKeyDown={() => setOpenStack(false)}
 			maxWidth="false"
 		>
-			<motion.div initial="hidden" animate="visible">
+			<motion.div variants={titleVariants} initial="hidden" animate="visible">
 				<Typography variant="h2" align="center">
 					Technologies I know
 				</Typography>
@@ -81,7 +96,7 @@ export default function Stack({ openStack, setOpenStack }) {
 								onMouseLeave={() => setSelectedIcon(".")}
 							>
 								<motion.img
-									src={`${process.env.PUBLIC_URL}/${icon.img}`}
+									src={`${process.env.PUBLIC_URL}/stackIcons/${icon.img}`}
 									alt={icon.img.slice(0, icon.img.length - 4)}
 									className="stackIcon"
 								/>
@@ -110,7 +125,7 @@ export default function Stack({ openStack, setOpenStack }) {
 								onMouseLeave={() => setSelectedIcon(".")}
 							>
 								<motion.img
-									src={`${process.env.PUBLIC_URL}/${icon.img}`}
+									src={`${process.env.PUBLIC_URL}/stackIcons/${icon.img}`}
 									alt={icon.img.slice(0, icon.img.length - 4)}
 									className="stackIcon"
 								/>

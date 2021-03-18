@@ -100,7 +100,7 @@ export default function SignBee() {
 									}}
 								>
 									<motion.img
-										src={`${process.env.PUBLIC_URL}/${icon.img}`}
+										src={`${process.env.PUBLIC_URL}/stackIcons/${icon.img}`}
 										alt={icon.img.slice(0, icon.img.length - 4)}
 										className="stackIcon"
 									/>

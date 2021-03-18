@@ -3,7 +3,7 @@ import { createMuiTheme, fade } from "@material-ui/core/styles";
 export default createMuiTheme({
 	palette: {
 		primary: {
-			main: "#f4acb7",
+			main: "#F8CA45",
 		},
 		secondary: {
 			main: "#f4acb7",
@@ -55,7 +55,7 @@ export default createMuiTheme({
 			paper: {
 				borderRadius: 20,
 				opacity: "80%",
-				padding: "8%",
+				padding: "5%",
 				paddingTop: "5%",
 				paddingBottom: "5%",
 			},
