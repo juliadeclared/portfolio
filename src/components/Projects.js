@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Dialog, Grid, Typography, useMediaQuery } from "@material-ui/core";
-// import {useTheme} from "@material-ui/core/styles"
+import { Dialog, Grid, Typography } from "@material-ui/core";
 import { ArrowForwardIos, ArrowBackIos } from "@material-ui/icons";
 import { motion } from "framer-motion";
+
 import SignBee from "./SignBee";
 import Portfolio from "./Portfolio";
 
@@ -27,9 +27,6 @@ const projectVariants = {
 };
 
 export default function Projects({ openProjects, setOpenProjects }) {
-  // const theme = useTheme()
-  // const matches = useMediaQuery(theme.breakpoints.down('sm'))
-
 	const [activeComponent, setActiveComponent] = useState(1);
 	const [direction, setDirection] = useState(null);
 

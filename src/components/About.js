@@ -48,9 +48,10 @@ export default function About({ openAbout, setOpenAbout }) {
 						About Me
 					</Typography>
 					<Typography variant="h6">
-						I am the founder of the first fully vegan and gluten-free creperie
-						in New York — Little Choc Apothecary. I am also a newly trained
+						My name is Julia, and I am a newly trained
 						Software Engineer!
+            I am also the founder of the first fully vegan and gluten-free creperie
+						in New York — Little Choc Apothecary. 
 					</Typography>
 					<br />
 					<Typography variant="h6">

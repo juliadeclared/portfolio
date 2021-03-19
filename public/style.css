@@ -35,10 +35,6 @@ body {
 	pointer-events: none;
 }
 
-#iconName {
-  min-height: 40px;
-}
-
 .profileImage {
 	object-fit: cover;
 	border-radius: 50%;
@@ -59,16 +55,16 @@ body {
 	padding-left: 52px;
 	height: 42px;
 	margin-left: -53px;
-  margin-top: -2px;
-  margin-bottom: 2px;
+	margin-top: -2px;
+	margin-bottom: 2px;
 	z-index: -1;
 }
 
 .popper {
-  background: #fff8dc;
+	background: #fff8dc;
 	border-radius: 50px;
 	padding: 10px;
-  opacity: 80%;
+	opacity: 80%;
 }
 
 @media only screen and (min-device-width: 360px) and (max-device-width: 667px) {
@@ -77,27 +73,26 @@ body {
 		width: 200px;
 	}
 
-  #hint {
-	padding-right: 15px;
-	padding-left: 52px;
-	height: 44px;
-	margin-left: -57px;
-}
+	#hint {
+		position: absolute;
+    left: 60px;
+		padding-right: 15px;
+		padding-left: 40px;
+		margin-left: -37px;
+	}
 
-.iconBg {
-	width: 70px;
-	height: 70px;
-}
+	.iconBg {
+		width: 70px;
+		height: 70px;
+	}
 
-.stackIcon {
-	width: 50px;
-	height: auto;
-}
+	.stackIcon {
+		width: 50px;
+		height: auto;
+	}
 
-.iphoneImg {
-	width: 70vw;
-	padding: 10px;
+	.iphoneImg {
+		width: 70vw;
+		padding: 10px;
+	}
 }
-}
-
-

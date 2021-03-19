@@ -42,7 +42,7 @@ const Plane = ({ name, rotation, position }) => {
 
 	const handleClick = (e) => {
 		e.stopPropagation();
-		setActive(!active);
+    setActive(!active);
 		if (active && name === "About") setOpenAbout(!openAbout);
 		if (active && name === "Stack") setOpenStack(!openStack);
 		if (active && name === "Projects") setOpenProjects(!openProjects);
@@ -90,8 +90,7 @@ export default function Box() {
 	const mesh = useRef(null);
 
 	const props = useSpring({
-		// scale: active ? [4, 2, 1] : [1, 1, 1],
-		color: hovered || active ? "hotpink" : "#f9dcc4",
+		color: hovered || active ? "hotpink" : "#f4acb7",
 	});
 
 	let date = new Date();

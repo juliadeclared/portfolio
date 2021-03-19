@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Dialog, Typography, Grid } from "@material-ui/core";
+import { Dialog, Typography, Grid, Popper } from "@material-ui/core";
 import { motion } from "framer-motion";
 
 const stackIconVariants = {
@@ -18,7 +18,7 @@ const stackIconVariants = {
 	transition: {
 		type: "spring",
 		delay: 1,
-	}
+	},
 };
 
 const titleVariants = {
@@ -43,7 +43,8 @@ const titleVariants = {
 
 export default function Stack({ openStack, setOpenStack }) {
 	const [selectedIcon, setSelectedIcon] = useState("");
-  const [selectedIcon2, setSelectedIcon2] = useState("");
+	const [openPopper, setOpenPopper] = useState(false);
+	const [anchorEl, setAnchorEl] = useState(null);
 	const constraintsRef = useRef(null);
 	const constraintsRef2 = useRef(null);
 
@@ -81,11 +82,16 @@ export default function Stack({ openStack, setOpenStack }) {
 					Technologies I know
 				</Typography>
 			</motion.div>
-			<div id="iconName">
-				<Typography variant="h5" align="center">
-					{selectedIcon}
-				</Typography>
-			</div>
+			<Popper open={openPopper} anchorEl={anchorEl} style={{ zIndex: 1400 }}>
+				<motion.div
+					initial={{ opacity: 0, scale: 0 }}
+					animate={{ opacity: 1, scale: 1 }}
+					transition={{ type: "spring", duration: 0.3 }}
+					className="popper"
+				>
+					<Typography>{selectedIcon}</Typography>
+				</motion.div>
+			</Popper>
 			<Grid container spacing={3} justify="center" ref={constraintsRef}>
 				{icons.map((icon) => {
 					return (
@@ -98,8 +104,15 @@ export default function Stack({ openStack, setOpenStack }) {
 								initial="hidden"
 								animate="visible"
 								transition="transition"
-								onMouseEnter={() => setSelectedIcon(icon.name)}
-								onMouseLeave={() => setSelectedIcon("")}
+								onMouseEnter={(e) => {
+									setAnchorEl(e.currentTarget);
+									setOpenPopper(true);
+									setSelectedIcon(icon.name);
+								}}
+								onMouseLeave={() => {
+									setSelectedIcon("");
+									setOpenPopper(false);
+								}}
 								whileHover={{
 									sacle: 1.2,
 								}}
@@ -121,12 +134,7 @@ export default function Stack({ openStack, setOpenStack }) {
 					Technologies I am familiar with
 				</Typography>
 			</motion.div>
-			<div id="iconName">
-				<Typography variant="h5" align="center">
-					{selectedIcon2}
-				</Typography>
-			</div>
-			
+
 			<Grid container spacing={3} justify="center" ref={constraintsRef2}>
 				{iconsTwo.map((icon) => {
 					return (
@@ -138,8 +146,15 @@ export default function Stack({ openStack, setOpenStack }) {
 								dragConstraints={constraintsRef2}
 								initial="hidden2"
 								animate="visible"
-								onMouseEnter={() => setSelectedIcon2(icon.name)}
-								onMouseLeave={() => setSelectedIcon2("")}
+								onMouseEnter={(e) => {
+									setAnchorEl(e.currentTarget);
+									setOpenPopper(true);
+									setSelectedIcon(icon.name);
+								}}
+								onMouseLeave={() => {
+									setSelectedIcon("");
+									setOpenPopper(false);
+								}}
 								whileHover={{ scale: 1.2 }}
 							>
 								<motion.img

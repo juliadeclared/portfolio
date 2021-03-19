@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import "firebase/firestore";
 import { Dialog, Grid, Typography, TextField, Button, Popper } from "@material-ui/core";
 import { GitHub, LinkedIn } from "@material-ui/icons";
+import { motion } from "framer-motion";
 
 export default function Contact({ openContact, setOpenContact }) {
 	const nameRef = useRef();
@@ -50,12 +51,15 @@ export default function Contact({ openContact, setOpenContact }) {
 			>
 				Send Email
 			</Button>
-			<Popper open={openPopper} anchorEl={anchorEl} style={{zIndex: 1400}}>
-        <div className="popper">
-          <Typography >
-          Will open your default email client
-        </Typography>
-        </div>
+			<Popper open={openPopper} anchorEl={anchorEl} style={{ zIndex: 1400 }}>
+				<motion.div
+					className="popper"
+					initial={{ opacity: 0, scale: 0 }}
+					animate={{ opacity: 1, scale: 1 }}
+					transition={{ type: "spring", duration: 0.3 }}
+				>
+					<Typography>Will open your default email client</Typography>
+				</motion.div>
 			</Popper>
 			<Grid container alignItems="center" justify="center">
 				<GitHub
