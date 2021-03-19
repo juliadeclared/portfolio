@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 import SignBee from "./SignBee";
 import Portfolio from "./Portfolio";
+import TigerSugar from "./TigerSugar"
 
 const projectVariants = {
 	hiddenLeft: {
@@ -30,7 +31,7 @@ export default function Projects({ openProjects, setOpenProjects }) {
 	const [activeComponent, setActiveComponent] = useState(1);
 	const [direction, setDirection] = useState(null);
 
-	const maxProjects = 2;
+	const maxProjects = 3;
 
 	const scrollRight = () => {
 		setDirection("hiddenRight");
@@ -80,6 +81,15 @@ export default function Projects({ openProjects, setOpenProjects }) {
 						animate="visible"
 					>
 						<Portfolio />
+					</motion.div>
+				)}
+				{activeComponent === 3 && (
+					<motion.div
+						variants={projectVariants}
+						initial={direction}
+						animate="visible"
+					>
+						<TigerSugar />
 					</motion.div>
 				)}
 			</Dialog>
