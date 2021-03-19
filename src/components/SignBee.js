@@ -93,8 +93,8 @@ export default function SignBee() {
 						alignItems="baseline"
 						justify={matches ? "center" : "left"}
 					>
-						<Typography variant="h3">SignBee | </Typography>
-						<Typography variant="h4"> | Full Stack SDE</Typography>
+						<Typography variant="h3">SignBee |</Typography>
+						<Typography variant="h4">| Full Stack SDE</Typography>
 					</Grid>
 					{matches && <br />}
 					<Typography variant="h6">
@@ -131,7 +131,7 @@ export default function SignBee() {
 				<Grid
 					item
 					xs={6}
-					style={{ height: matches ? "210px" : "450px" }}
+					style={{ height: matches ? "210px" : "450px", minWidth: matches ? "100%" : "auto" }}
 					ref={constraintsRef}
 				>
 					{signBeeStack.map((icon) => {

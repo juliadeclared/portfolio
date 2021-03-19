@@ -86,11 +86,16 @@ export default function Portfolio() {
 			<Grid container direction={matches ? "column" : "row"}>
 				<Grid item container direction="column" xs={matches ? 11 : 6}>
 					<br />
-					<Grid item container alignItems="baseline" justify={matches ? "center" : "left"}>
+					<Grid
+						item
+						container
+						alignItems="baseline"
+						justify={matches ? "center" : "left"}
+					>
 						<Typography variant="h3">Portfolio | </Typography>
 						<Typography variant="h4"> | Full Stack SDE</Typography>
 					</Grid>
-          {matches && <br/>}
+					{matches && <br />}
 					<Typography variant="h6">
 						You’re lookin’ at it! For my portfolio site, I wanted to show off my
 						creativity while learning some new technologies. I really enjoy the
@@ -115,7 +120,10 @@ export default function Portfolio() {
 				<Grid
 					item
 					xs={6}
-					style={{ height: matches ? "200px" : "450px" }}
+					style={{
+						height: matches ? "200px" : "450px",
+						minWidth: matches ? "100%" : "auto",
+					}}
 					ref={constraintsRef}
 				>
 					{portfolioStack.map((icon) => {

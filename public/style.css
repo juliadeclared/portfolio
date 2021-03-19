@@ -64,6 +64,13 @@ body {
 	z-index: -1;
 }
 
+.popper {
+  background: #fff8dc;
+	border-radius: 50px;
+	padding: 10px;
+  opacity: 80%;
+}
+
 @media only screen and (min-device-width: 360px) and (max-device-width: 667px) {
 	.profileImage {
 		height: 200px;
