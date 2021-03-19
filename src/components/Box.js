@@ -10,12 +10,7 @@ extend({ OrbitControls });
 
 const Controls = () => {
 	const controls = useRef();
-
 	const { camera, gl } = useThree();
-
-	// useFrame(() => {
-	// 	controls.current.update();
-	// });
 
 	return (
 		<orbitControls
@@ -68,13 +63,15 @@ const Plane = ({ name, rotation, position }) => {
 				attach="material"
 				color={props.color}
 				side={THREE.DoubleSide}
+				polygonOffset={true}
+				polygonOffsetFactor={-1}
+				polygonOffsetUnits={-1}
 			/>
 			<Text
 				color="#fff8dc"
-				// fillOpacity={0.5}
 				anchorX="center"
 				anchorY="middle"
-				depthOffset={-1}
+				depthOffset={-2}
 				materialType="meshStandardMaterial"
 				font="https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwK4vaqI.woff"
 				maxWidth={1}
