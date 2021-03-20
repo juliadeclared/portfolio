@@ -90,7 +90,7 @@ export default function Portfolio() {
 						item
 						container
 						alignItems="baseline"
-						justify={matches ? "center" : "left"}
+						justify={matches ? "center" : "flex-start"}
 					>
 						<Typography variant="h3">Portfolio | </Typography>
 						<Typography variant="h4"> | Full Stack SDE</Typography>

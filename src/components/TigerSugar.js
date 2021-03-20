@@ -84,8 +84,8 @@ export default function TigerSugar() {
 			scale: 0.5,
 			x: 370,
 			y: -1050,
-			xx: 200,
-			yy: -700,
+			xx: 95,
+			yy: -370,
 			name: "Sequelize",
 			img: "sequelize_icon.png",
 		},
@@ -93,8 +93,8 @@ export default function TigerSugar() {
 			scale: 0.6,
 			x: 20,
 			y: -1050,
-			xx: 200,
-			yy: -500,
+			xx: -4,
+			yy: -420,
 			name: "PostgreSQL",
 			img: "postgresql_icon.png",
 		},
@@ -103,7 +103,7 @@ export default function TigerSugar() {
 			x: -10,
 			y: -1350,
 			xx: 200,
-			yy: -500,
+			yy: -480,
 			name: "Heroku",
 			img: "heroku_icon.png",
 		},
@@ -111,7 +111,7 @@ export default function TigerSugar() {
 			scale: 0.8,
 			x: 490,
 			y: -1350,
-			xx: 200,
+			xx: 70,
 			yy: -500,
 			name: "Travis",
 			img: "travis_icon.png",
@@ -126,23 +126,25 @@ export default function TigerSugar() {
 						item
 						container
 						alignItems="baseline"
-						justify={matches ? "center" : "left"}
+						justify={matches ? "center" : "flex-start"}
 					>
-						<Typography variant="h3">Tiger Sugar Balm |</Typography>
+						<Typography variant="h3">Tiger Sugar |</Typography>
 						<Typography variant="h4">| Full Stack SDE</Typography>
 					</Grid>
 					{matches && <br />}
 					<Typography variant="h6">
-						A fictional e-commerce site that specializes in silly potions, such as Kanye West's Tears, that will make all your dreams come true!  
+						A fictional e-commerce site that specializes in silly potions, such
+						as Kanye West's Tears, that will make all your dreams come true!
 					</Typography>
 					<br />
 					<Typography variant="h6">
-						Stack: Node JS, React JS, Redux, Express, Sequelize, PostgreSQL, Git / GitHub,
-						CSS, HTML, Material UI, Heroku, Travis
+						Stack: Node JS, React JS, Redux, Express, Sequelize, PostgreSQL, Git
+						/ GitHub, CSS, HTML, Material UI, Heroku, Travis
 					</Typography>
 					<br />
 					<Typography variant="h5">
-						Team: Julia Kravets, Lindsey Pak, Samantha Shapland and Priscila Pintado
+						Team: Julia Kravets, Lindsey Pak, Samantha Shapland and Priscila
+						Pintado
 					</Typography>
 					<br />
 					<Grid item align="center">
@@ -208,11 +210,11 @@ export default function TigerSugar() {
 				</Grid>
 			</Grid>
 
-			{/* <Grid item direction={matches ? "column" : "row"} align="center">
+			<Grid item container direction="column" align="center">
 				<motion.img
-					src={process.env.PUBLIC_URL + "/iphone_dashboard.png"}
-					alt="dashboard"
-					className="iphoneImg"
+					src={process.env.PUBLIC_URL + "/TS1.png"}
+					alt="landing"
+					className="laptopImg"
 					whileHover={{
 						scale: 1.4,
 						transition: {
@@ -223,9 +225,9 @@ export default function TigerSugar() {
 					}}
 				/>
 				<motion.img
-					src={process.env.PUBLIC_URL + "/iphone_gameplay.png"}
+					src={process.env.PUBLIC_URL + "./TS2.png"}
 					alt="gameplay"
-					className="iphoneImg"
+					className="laptopImg"
 					whileHover={{
 						scale: 1.4,
 						transition: {
@@ -236,9 +238,9 @@ export default function TigerSugar() {
 					}}
 				/>
 				<motion.img
-					src={process.env.PUBLIC_URL + "/iphone_stats.png"}
+					src={process.env.PUBLIC_URL + "/TS3.png"}
 					alt="stats"
-					className="iphoneImg"
+					className="laptopImg"
 					whileHover={{
 						scale: 1.4,
 						transition: {
@@ -248,7 +250,7 @@ export default function TigerSugar() {
 						},
 					}}
 				/>
-			</Grid> */}
+			</Grid>
 		</>
 	);
 }

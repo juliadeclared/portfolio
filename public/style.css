@@ -48,6 +48,11 @@ body {
 	padding: 10px;
 }
 
+.laptopImg {
+	width: 80vw;
+	padding: 10px;
+}
+
 #hint {
 	background: #fff8dc;
 	border-radius: 50px;

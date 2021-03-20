@@ -91,7 +91,7 @@ export default function SignBee() {
 						item
 						container
 						alignItems="baseline"
-						justify={matches ? "center" : "left"}
+						justify={matches ? "center" : "flex-start"}
 					>
 						<Typography variant="h3">SignBee |</Typography>
 						<Typography variant="h4">| Full Stack SDE</Typography>
@@ -176,7 +176,7 @@ export default function SignBee() {
 				</Grid>
 			</Grid>
 
-			<Grid item direction={matches ? "column" : "row"} align="center">
+			<Grid item container direction={matches ? "column" : "row"} align="center">
 				<motion.img
 					src={process.env.PUBLIC_URL + "/iphone_dashboard.png"}
 					alt="dashboard"
