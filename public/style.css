@@ -11,6 +11,10 @@ body,
 	padding: 0;
 }
 
+a {
+  color: #84a59d;
+}
+
 body {
 	background: #ffb5a7;
 	position: fixed;
@@ -50,6 +54,7 @@ body {
 
 .laptopImg {
 	width: 80vw;
+  height: auto;
 	padding: 10px;
 }
 

@@ -113,16 +113,20 @@ export default function SignBee() {
 					</Typography>
 					<br />
 					<Grid item align="center">
-						<Button href="https://signbee-79d6e.web.app/">Play</Button>
+						<Button href="https://signbee-79d6e.web.app/" target="_blank">
+							Play
+						</Button>
 						<Button
 							variant="outlined"
 							href="https://github.com/2011-team-heights100/SignBee"
+							target="_blank"
 						>
 							GitHub
 						</Button>
 						<Button
 							variant="outlined"
 							href="https://www.youtube.com/watch?v=Me-NddzkNp8"
+							target="_blank"
 						>
 							Demo
 						</Button>
@@ -131,7 +135,10 @@ export default function SignBee() {
 				<Grid
 					item
 					xs={6}
-					style={{ height: matches ? "210px" : "450px", minWidth: matches ? "100%" : "auto" }}
+					style={{
+						height: matches ? "210px" : "450px",
+						minWidth: matches ? "100%" : "auto",
+					}}
 					ref={constraintsRef}
 				>
 					{signBeeStack.map((icon) => {
@@ -176,7 +183,12 @@ export default function SignBee() {
 				</Grid>
 			</Grid>
 
-			<Grid item container direction={matches ? "column" : "row"} align="center">
+			<Grid
+				item
+				container
+				direction={matches ? "column" : "row"}
+				align="center"
+			>
 				<motion.img
 					src={process.env.PUBLIC_URL + "/iphone_dashboard.png"}
 					alt="dashboard"

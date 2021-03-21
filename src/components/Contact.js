@@ -11,7 +11,7 @@ export default function Contact({ openContact, setOpenContact }) {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleSubmit = () => {
-    const mailto = `mailto:juliaakravets@gmail.com'target="_blank"'?subject=${nameRef.current.value} Connection Request&body=${messageRef.current.value}`;
+    const mailto = `mailto:juliaakravets@gmail.com?subject=${nameRef.current.value} Connection Request&body=${messageRef.current.value}`;
 
 		window.location.href = mailto
 

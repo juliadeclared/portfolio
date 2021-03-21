@@ -27,7 +27,7 @@ export default function About({ openAbout, setOpenAbout }) {
 			open={openAbout}
 			onBackdropClick={() => setOpenAbout(false)}
 			onEscapeKeyDown={() => setOpenAbout(false)}
-      maxWidth="md"
+			maxWidth="md"
 		>
 			<Grid container direction="column">
 				<motion.img
@@ -48,10 +48,17 @@ export default function About({ openAbout, setOpenAbout }) {
 						About Me
 					</Typography>
 					<Typography variant="h6">
-						My name is Julia, and I am a newly trained
-						Software Engineer!
-            I am also the founder of the first fully vegan and gluten-free creperie
-						in New York — Little Choc Apothecary. 
+						My name is Julia, and I am a newly trained Software Engineer! I am
+						also the founder of the first fully vegan and gluten-free creperie
+						in New York —{" "}
+						<a
+							href="https://www.littlechoc.nyc/"
+							rel="noreferrer"
+							target="_blank"
+						>
+							Little Choc Apothecary
+						</a>
+						.
 					</Typography>
 					<br />
 					<Typography variant="h6">

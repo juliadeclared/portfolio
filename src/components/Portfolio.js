@@ -113,6 +113,7 @@ export default function Portfolio() {
 					<Button
 						variant="outlined"
 						href="https://github.com/juliadeclared/portfolio"
+						target="_blank"
 					>
 						GitHub
 					</Button>

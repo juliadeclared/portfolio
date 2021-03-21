@@ -148,12 +148,16 @@ export default function TigerSugar() {
 					</Typography>
 					<br />
 					<Grid item align="center">
-						<Button href="https://tiger-sugar-balm.herokuapp.com/">
+						{/* <Button
+							href="https://tiger-sugar-balm.herokuapp.com/"
+							target="_blank"
+						>
 							Deployed Site
-						</Button>
+						</Button> */}
 						<Button
 							variant="outlined"
 							href="https://github.com/Team-TigerSugar/tiger-sugar-shop"
+							target="_blank"
 						>
 							GitHub
 						</Button>
