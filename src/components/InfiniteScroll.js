@@ -3,6 +3,8 @@ import { Grid, Typography, Button } from '@material-ui/core';
 import { motion } from 'framer-motion';
 import { useStore } from '../utils/Context';
 
+import ProjectScreenshots from './ProjectScreenshots';
+
 export default function InfiniteScroll() {
   const { matches } = useStore();
   const constraintsRef = useRef(null);
@@ -81,6 +83,14 @@ export default function InfiniteScroll() {
       img: 'material_ui_icon.png',
     },
   ];
+
+  const ksImages = [
+    '/KS_top_page.png',
+    '/KS_pin.png',
+    '/KS_comments.png',
+    '/KS_search.png',
+  ];
+
   return (
     <>
       <Grid container direction={matches ? 'column' : 'row'}>
@@ -173,58 +183,7 @@ export default function InfiniteScroll() {
       </Grid>
 
       <Grid item container direction="column" align="center">
-        <motion.img
-          src={process.env.PUBLIC_URL + '/KS_top_page.png'}
-          alt="dashboard"
-          className="laptopImg"
-          whileHover={{
-            scale: 1.4,
-            transition: {
-              type: 'spring',
-              delay: 0,
-              duration: 5,
-            },
-          }}
-        />
-        <motion.img
-          src={process.env.PUBLIC_URL + '/KS_pin.png'}
-          alt="gameplay"
-          className="laptopImg"
-          whileHover={{
-            scale: 1.4,
-            transition: {
-              type: 'spring',
-              delay: 0,
-              duration: 5,
-            },
-          }}
-        />
-        <motion.img
-          src={process.env.PUBLIC_URL + '/KS_comments.png'}
-          alt="stats"
-          className="laptopImg"
-          whileHover={{
-            scale: 1.4,
-            transition: {
-              type: 'spring',
-              delay: 0,
-              duration: 2,
-            },
-          }}
-        />
-        <motion.img
-          src={process.env.PUBLIC_URL + '/KS_search.png'}
-          alt="stats"
-          className="laptopImg"
-          whileHover={{
-            scale: 1.4,
-            transition: {
-              type: 'spring',
-              delay: 0,
-              duration: 2,
-            },
-          }}
-        />
+        <ProjectScreenshots imageArr={ksImages} cssClass="laptopImg" />
       </Grid>
     </>
   );
