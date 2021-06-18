@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import SignBee from "./SignBee";
 import Portfolio from "./Portfolio";
 import TigerSugar from "./TigerSugar"
+import InfiniteScroll from './InfiniteScroll';
 
 const projectVariants = {
 	hiddenLeft: {
@@ -31,7 +32,7 @@ export default function Projects({ openProjects, setOpenProjects }) {
 	const [activeComponent, setActiveComponent] = useState(1);
 	const [direction, setDirection] = useState(null);
 
-	const maxProjects = 3;
+	const maxProjects = 4;
 
 	const scrollRight = () => {
 		setDirection("hiddenRight");
@@ -46,53 +47,62 @@ export default function Projects({ openProjects, setOpenProjects }) {
 	};
 
 	return (
-		<>
-			<Dialog
-				open={openProjects}
-				onBackdropClick={() => setOpenProjects(false)}
-				onEscapeKeyDown={() => setOpenProjects(false)}
-				maxWidth={false}
-			>
-				<Grid container justify="space-between" alignItems="center">
-					<motion.div whileHover={{ scale: 1.3 }}>
-						<ArrowBackIos onClick={scrollLeft} />
-					</motion.div>
-					<Typography variant="h2" align="center">
-						Projects
-					</Typography>
-					<motion.div whileHover={{ scale: 1.3 }}>
-						<ArrowForwardIos onClick={scrollRight} />
-					</motion.div>
-				</Grid>
-				<br />
-				{activeComponent === 1 && (
-					<motion.div
-						variants={projectVariants}
-						initial={direction}
-						animate="visible"
-					>
-						<SignBee />
-					</motion.div>
-				)}
-				{activeComponent === 2 && (
-					<motion.div
-						variants={projectVariants}
-						initial={direction}
-						animate="visible"
-					>
-						<Portfolio />
-					</motion.div>
-				)}
-				{activeComponent === 3 && (
-					<motion.div
-						variants={projectVariants}
-						initial={direction}
-						animate="visible"
-					>
-						<TigerSugar />
-					</motion.div>
-				)}
-			</Dialog>
-		</>
-	);
+    <>
+      <Dialog
+        open={openProjects}
+        onBackdropClick={() => setOpenProjects(false)}
+        onEscapeKeyDown={() => setOpenProjects(false)}
+        maxWidth={false}
+      >
+        <Grid container justify="space-between" alignItems="center">
+          <motion.div whileHover={{ scale: 1.3 }}>
+            <ArrowBackIos onClick={scrollLeft} />
+          </motion.div>
+          <Typography variant="h2" align="center">
+            Projects
+          </Typography>
+          <motion.div whileHover={{ scale: 1.3 }}>
+            <ArrowForwardIos onClick={scrollRight} />
+          </motion.div>
+        </Grid>
+        <br />
+        {activeComponent === 1 && (
+          <motion.div
+            variants={projectVariants}
+            initial={direction}
+            animate="visible"
+          >
+            <SignBee />
+          </motion.div>
+        )}
+        {activeComponent === 2 && (
+          <motion.div
+            variants={projectVariants}
+            initial={direction}
+            animate="visible"
+          >
+            <Portfolio />
+          </motion.div>
+        )}
+        {activeComponent === 3 && (
+          <motion.div
+            variants={projectVariants}
+            initial={direction}
+            animate="visible"
+          >
+            <TigerSugar />
+          </motion.div>
+        )}
+        {activeComponent === 4 && (
+          <motion.div
+            variants={projectVariants}
+            initial={direction}
+            animate="visible"
+          >
+            <InfiniteScroll />
+          </motion.div>
+        )}
+      </Dialog>
+    </>
+  );
 }
