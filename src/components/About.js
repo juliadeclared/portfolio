@@ -48,8 +48,7 @@ export default function About({ openAbout, setOpenAbout }) {
 						About Me
 					</Typography>
 					<Typography variant="h6">
-						My name is Julia, and I am a newly trained Software Engineer! I am
-						also the founder of the first fully vegan and gluten-free creperie
+						My name is Julia, and I am a Software Engineer and founder of the first fully vegan and gluten-free creperie
 						in New York —{" "}
 						<a
 							href="https://www.littlechoc.nyc/"
@@ -62,8 +61,7 @@ export default function About({ openAbout, setOpenAbout }) {
 					</Typography>
 					<br />
 					<Typography variant="h6">
-						I built my restaurant from the ground up in 2014, at 24 years of
-						age, and am proud to say that it continues to be a Brooklyn gem
+						I built my restaurant from the ground up in 2014, and am proud to say that it continues to be a Brooklyn gem
 						today. What I love most about running a business is finding creative
 						ways to solve obscure problems, and designing optimized systems to
 						streamline workflows and increase productivity. I love empowering my
@@ -73,7 +71,7 @@ export default function About({ openAbout, setOpenAbout }) {
 					<br />
 					<Typography variant="h6">
 						Little Choc had to shut down for two months during the pandemic, and
-						I found myself with a lot of free time to explore other talents and
+						I used that time to explore some of my other talents and
 						long-standing passions, like learning to code. Pursuing my interest
 						further, I applied and was accepted to the Web Development
 						Fellowship scholarship program at Fullstack Academy.
@@ -82,8 +80,8 @@ export default function About({ openAbout, setOpenAbout }) {
 					<Typography variant="h6">
 						Going through this immersive program has been a challenging,
 						intellectually stimulating, and rewarding experience. It made me
-						fall even more in love with development, and I’m looking forward to
-						tackling more challenges as a Software Engineer.
+						fall even more in love with development, and I proudly accepted my first full-time engineering role at Twitter. I’m looking forward to
+						tackling exciting, new challenges as a Software Engineer and Tweep.
 					</Typography>
 				</motion.div>
 			</Grid>

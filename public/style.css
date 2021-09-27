@@ -77,7 +77,7 @@ body {
 	opacity: 80%;
 }
 
-@media only screen and (min-device-width: 360px) and (max-device-width: 667px) {
+@media only screen and (max-device-width: 667px) {
 	.profileImage {
 		height: 200px;
 		width: 200px;
