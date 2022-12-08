@@ -5,6 +5,7 @@ import { useSpring, a } from 'react-spring/three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { Text } from '@react-three/drei';
 import { useStore } from '../utils/Context';
+import { analytics } from '../firebase';
 
 extend({ OrbitControls });
 
@@ -43,10 +44,22 @@ const Plane = ({ name, rotation, position }) => {
   const handleClick = (e) => {
     e.stopPropagation();
     setActive(!active);
-    if (active && name === 'About') setOpenAbout(!openAbout);
-    if (active && name === 'Stack') setOpenStack(!openStack);
-    if (active && name === 'Projects') setOpenProjects(!openProjects);
-    if (active && name === 'Contact') setOpenContact(!openContact);
+    if (active && name === 'About') {
+      setOpenAbout(!openAbout);
+      analytics.logEvent('about_open');
+    }
+    if (active && name === 'Stack') {
+      setOpenStack(!openStack);
+      analytics.logEvent('stack_open');
+    }
+    if (active && name === 'Projects') {
+      setOpenProjects(!openProjects);
+      analytics.logEvent('projects_open');
+    }
+    if (active && name === 'Contact') {
+      setOpenContact(!openContact);
+      analytics.logEvent('contact_open');
+    }
   };
 
   return (
