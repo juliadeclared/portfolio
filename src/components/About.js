@@ -1,28 +1,28 @@
-import React from "react";
-import { Dialog, Grid, Typography } from "@material-ui/core";
-import { motion } from "framer-motion";
+import React from 'react';
+import { Dialog, Grid, Typography } from '@material-ui/core';
+import { motion } from 'framer-motion';
 
 const aboutVariants = {
-	hidden: {
-		opacity: 0,
-		y: "-100vh",
-	},
-	hidden2: {
-		opacity: 0,
-		y: "100vh",
-	},
-	visible: {
-		opacity: 1,
-		y: 0,
-		transition: {
-			type: "spring",
-			// delay: 0.5,
-		},
-	},
+  hidden: {
+    opacity: 0,
+    y: '-100vh',
+  },
+  hidden2: {
+    opacity: 0,
+    y: '100vh',
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring',
+      // delay: 0.5,
+    },
+  },
 };
 
 export default function About({ openAbout, setOpenAbout }) {
-	return (
+  return (
     <Dialog
       open={openAbout}
       onBackdropClick={() => setOpenAbout(false)}
@@ -86,6 +86,22 @@ export default function About({ openAbout, setOpenAbout }) {
             problem-solving, and eagerness to learn. This made me fall even more
             in love with development, and I’m looking forward to tackling more
             challenges as a Software Engineer.
+          </Typography>
+          <br />
+          <br />
+          <Typography variant="h6">
+            Answer to the "two truths and a lie" game from my GitHub{' '}
+            <a
+              href="https://github.com/juliadeclared/portfolio"
+              rel="noreferrer"
+              target="_blank"
+            >
+              README
+            </a>
+            : I was never a semi-pro surfer! I am awful at surfing, actually.
+            That doesn't stop me from continuing to try, though! Send me a
+            message if you have surfing tips, or want to chat about a fun
+            project!
           </Typography>
         </motion.div>
       </Grid>
