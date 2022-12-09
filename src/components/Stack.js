@@ -1,54 +1,54 @@
-import React, { useState, useRef } from "react";
-import { Dialog, Typography, Grid, Popper } from "@material-ui/core";
-import { motion } from "framer-motion";
+import React, { useState, useRef } from 'react';
+import { Dialog, Typography, Grid, Popper } from '@material-ui/core';
+import { motion } from 'framer-motion';
 
 const stackIconVariants = {
-	hidden: {
-		opacity: 0,
-		x: "100vw",
-	},
-	hidden2: {
-		opacity: 0,
-		x: "-100vw",
-	},
-	visible: {
-		opacity: 1,
-		x: 0,
-	},
-	transition: {
-		type: "spring",
-		delay: 1,
-	},
+  hidden: {
+    opacity: 0,
+    x: '100vw',
+  },
+  hidden2: {
+    opacity: 0,
+    x: '-100vw',
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+  },
+  transition: {
+    type: 'spring',
+    delay: 1,
+  },
 };
 
 const titleVariants = {
-	hidden1: {
-		opacity: 0,
-		y: "100vh",
-	},
-	hidden2: {
-		opacity: 0,
-		y: "-100vh",
-	},
-	visible: {
-		opacity: 1,
-		y: 0,
-		transition: {
-			type: "spring",
-			delay: 0.3,
-			striffness: 50,
-		},
-	},
+  hidden1: {
+    opacity: 0,
+    y: '100vh',
+  },
+  hidden2: {
+    opacity: 0,
+    y: '-100vh',
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring',
+      delay: 0.3,
+      stiffness: 50,
+    },
+  },
 };
 
 export default function Stack({ openStack, setOpenStack }) {
-	const [selectedIcon, setSelectedIcon] = useState("");
-	const [openPopper, setOpenPopper] = useState(false);
-	const [anchorEl, setAnchorEl] = useState(null);
-	const constraintsRef = useRef(null);
-	const constraintsRef2 = useRef(null);
+  const [selectedIcon, setSelectedIcon] = useState('');
+  const [openPopper, setOpenPopper] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const constraintsRef = useRef(null);
+  const constraintsRef2 = useRef(null);
 
-	const icons = [
+  const icons = [
     { name: 'Python 3', img: 'python_icon.png' },
     { name: 'Node JS', img: 'node_icon.png' },
     { name: 'React JS', img: 'react_icon.png' },
@@ -63,7 +63,7 @@ export default function Stack({ openStack, setOpenStack }) {
     { name: 'Material UI', img: 'material_ui_icon.png' },
   ];
 
-	const iconsTwo = [
+  const iconsTwo = [
     { name: 'Scala', img: 'scala_icon.png' },
     { name: 'TensorFlow JS', img: 'tensorflow_icon.png' },
     { name: 'Three JS', img: 'three_icon.png' },
@@ -72,7 +72,7 @@ export default function Stack({ openStack, setOpenStack }) {
     { name: 'Travis', img: 'travis_icon.png' },
   ];
 
-	return (
+  return (
     <Dialog
       open={openStack}
       onBackdropClick={() => setOpenStack(false)}
@@ -117,7 +117,7 @@ export default function Stack({ openStack, setOpenStack }) {
                   setOpenPopper(false);
                 }}
                 whileHover={{
-                  sacle: 1.2,
+                  scale: 1.1,
                 }}
               >
                 <motion.img
@@ -159,7 +159,7 @@ export default function Stack({ openStack, setOpenStack }) {
                   setSelectedIcon('');
                   setOpenPopper(false);
                 }}
-                whileHover={{ scale: 1.2 }}
+                whileHover={{ scale: 1.1 }}
               >
                 <motion.img
                   src={`${process.env.PUBLIC_URL}/stackIcons/${icon.img}`}

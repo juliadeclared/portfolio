@@ -32,13 +32,29 @@ const Plane = ({ name, rotation, position }) => {
     setOpenStack,
     setOpenProjects,
     setOpenContact,
+    matches,
   } = useStore();
 
   const [hovered, setHovered] = useState(false);
+  const [active, setActive] = useState(false);
 
   const props = useSpring({
-    color: hovered ? 'hotpink' : '#f4acb7',
+    color: hovered || active ? 'hotpink' : '#f4acb7',
   });
+
+  const handleClick = (e) => {
+    e.stopPropagation();
+    setActive(!active);
+
+    // doubleclick workaround for mobile devices
+    if (matches && active) {
+      handleDoubleClick(e);
+    } else {
+      setTimeout(() => {
+        setActive(false);
+      }, 700);
+    }
+  };
 
   const handleDoubleClick = (e) => {
     e.stopPropagation();
@@ -68,6 +84,7 @@ const Plane = ({ name, rotation, position }) => {
       rotation={rotation}
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}
+      onPointerDown={handleClick}
       onDoubleClick={handleDoubleClick}
     >
       <planeBufferGeometry attach="geometry" args={[1, 1, 1]} />

@@ -29,6 +29,7 @@ body {
 	text-align: center;
 	align-items: center;
 	justify-content: center;
+  box-shadow: 8px 14px 10px rgba(132, 165, 157, 0.6);
 }
 
 .stackIcon {
@@ -45,6 +46,7 @@ body {
 	height: 400px;
 	width: 400px;
 	align-self: center;
+  box-shadow: 8px 14px 10px rgba(132, 165, 157, 0.6);
 }
 
 .iphoneImg {
