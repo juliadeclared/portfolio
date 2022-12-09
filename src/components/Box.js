@@ -35,28 +35,27 @@ const Plane = ({ name, rotation, position }) => {
   } = useStore();
 
   const [hovered, setHovered] = useState(false);
-  const [active, setActive] = useState(false);
 
   const props = useSpring({
-    color: hovered || active ? 'hotpink' : '#f4acb7',
+    color: hovered ? 'hotpink' : '#f4acb7',
   });
 
-  const handleClick = (e) => {
+  const handleDoubleClick = (e) => {
     e.stopPropagation();
-    setActive(!active);
-    if (active && name === 'About') {
+
+    if (name === 'About') {
       setOpenAbout(!openAbout);
       analytics.logEvent('about_open');
     }
-    if (active && name === 'Stack') {
+    if (name === 'Stack') {
       setOpenStack(!openStack);
       analytics.logEvent('stack_open');
     }
-    if (active && name === 'Projects') {
+    if (name === 'Projects') {
       setOpenProjects(!openProjects);
       analytics.logEvent('projects_open');
     }
-    if (active && name === 'Contact') {
+    if (name === 'Contact') {
       setOpenContact(!openContact);
       analytics.logEvent('contact_open');
     }
@@ -69,7 +68,7 @@ const Plane = ({ name, rotation, position }) => {
       rotation={rotation}
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}
-      onPointerDown={handleClick}
+      onDoubleClick={handleDoubleClick}
     >
       <planeBufferGeometry attach="geometry" args={[1, 1, 1]} />
       <a.meshStandardMaterial
