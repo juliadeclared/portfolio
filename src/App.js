@@ -48,7 +48,7 @@ export default function App() {
 						initial={{ scale: 0, x: "-14vw" }}
 						animate={{ scale: 1, x: 0 }}
 					>
-						<Typography variant="h5" style={{ marginTop: "10px", fontSize: matches ? "16px" : "h5" }}>
+						<Typography variant="h5" style={{ marginTop: matches ? "10px" : "5px", fontSize: matches ? "14px" : "h5" }}>
 							Double-click any side to find out more
 						</Typography>
 					</motion.div>

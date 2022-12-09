@@ -30,42 +30,42 @@ export default createMuiTheme({
   },
   typography: {
     h1: {
-      fontFamily: 'Sacramento',
+      fontFamily: '"Quicksand", sans-serif',
       marginBottom: 5,
       [breakpoints.down('sm')]: {
         textAlign: 'center',
       },
     },
     h2: {
-      fontFamily: 'Sacramento',
+      fontFamily: '"Bungee Inline", cursive',
       [breakpoints.down('sm')]: {
         fontSize: 42,
         textAlign: 'center',
       },
     },
     h3: {
-      fontFamily: 'Josefin Slab',
+      fontFamily: '"Quicksand", sans-serif',
       [breakpoints.down('sm')]: {
         fontSize: 34,
         textAlign: 'center',
       },
     },
     h4: {
-      fontFamily: 'Josefin Slab',
+      fontFamily: '"Quicksand", sans-serif',
       [breakpoints.down('sm')]: {
         fontSize: 20,
         textAlign: 'center',
       },
     },
     h5: {
-      fontFamily: 'Josefin Slab',
+      fontFamily: '"Quicksand", sans-serif',
       fontWeight: 600,
       [breakpoints.down('sm')]: {
         textAlign: 'center',
       },
     },
     h6: {
-      fontFamily: 'Josefin Slab',
+      fontFamily: '"Quicksand", sans-serif',
       [breakpoints.down('sm')]: {
         textAlign: 'center',
       },

@@ -59,7 +59,8 @@ body {
 }
 
 #hint {
-	background: #fff8dc;
+	background: rgba(255,255,255, 0.8);
+  opacity: 0.8;
 	border-radius: 50px;
 	padding-right: 15px;
 	padding-left: 52px;
@@ -71,7 +72,8 @@ body {
 }
 
 .popper {
-	background: #fff8dc;
+  background: rgba(255,255,255, 0.8);
+  opacity: 0.8;
 	border-radius: 50px;
 	padding: 10px;
 	opacity: 80%;

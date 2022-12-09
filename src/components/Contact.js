@@ -33,7 +33,7 @@ export default function Contact({ openContact, setOpenContact }) {
 			onBackdropClick={() => setOpenContact(false)}
 			onEscapeKeyDown={() => setOpenContact(false)}
 		>
-			<Typography variant="h2">Shoot me a message!</Typography>
+			<Typography variant="h2">Reach out!</Typography>
 			<TextField label="Your Name" required inputRef={nameRef} />
 			<TextField
 				label="Your Message Draft"
