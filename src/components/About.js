@@ -48,7 +48,7 @@ export default function About({ openAbout, setOpenAbout }) {
             About Me
           </Typography>
           <Typography variant="h6">
-            My name is Julia, and I am a Software Engineer and founder of the
+            <i>TL;DR:</i><br />My name is Julia, and I am a Software Engineer and founder of the
             first fully vegan and gluten-free creperie in New York —{' '}
             <a
               href="https://www.littlechoc.nyc/"
@@ -57,35 +57,37 @@ export default function About({ openAbout, setOpenAbout }) {
             >
               Little Choc Apothecary
             </a>
-            .
+            . I’m currently working at Etsy (which is an absolute dream), and
+            before that I was at Twitter 1.0.
           </Typography>
           <br />
           <Typography variant="h6">
-            I built my restaurant from the ground up in 2014, and am proud to
-            say that it continues to be a Brooklyn gem today. What I love most
-            about running a business is finding creative ways to solve obscure
-            problems, and designing optimized systems to streamline workflows
-            and increase productivity. I love empowering my staff with tools and
-            techniques to succeed at their tasks, without having to micromanage
-            them.
+            <i>The long story:</i><br />I built my restaurant from the ground up in 2014, and am proud to
+            say that it has been a Brooklyn gem for over 8 years. What I love
+            most about running a business is finding creative ways to solve
+            obscure problems, and designing optimized systems to streamline
+            workflows and increase productivity. I love empowering my staff with
+            tools and techniques to succeed at their tasks, without having to
+            micromanage them.
           </Typography>
           <br />
           <Typography variant="h6">
-            Little Choc had to shut down for two months during the pandemic, and
-            I used that time to explore some of my other talents and
-            long-standing passions, like learning to code. Pursuing my interest
-            further, I applied and was accepted to the Web Development
-            Fellowship scholarship program at Fullstack Academy.
+            When the pandemic forced Little Choc to shut down for two months, I
+            decided to turn lemons into lemon crepes, and took the opportunity
+            to explore some of my other talents and long-standing passions, like
+            learning to code. Pursuing my interest further, I applied and was
+            accepted to the Web Development Fellowship scholarship program at
+            Fullstack Academy.
           </Typography>
           <br />
           <Typography variant="h6">
-            Going through this immersive program has been a challenging,
+            Going through this immersive program was a challenging,
             intellectually stimulating, and rewarding experience. I discovered
-            that in order to succeed as an engineer, I have to flex all the
-            muscles I already love to use—curiosity, creativity,
-            problem-solving, and eagerness to learn. This made me fall even more
-            in love with development, and I’m looking forward to tackling more
-            challenges as a Software Engineer.
+            that to succeed as an engineer, I have to flex all the muscles I
+            already love to use—curiosity, creativity, problem-solving, and
+            eagerness to learn. I fall even more in love with development daily,
+            and I’m looking forward to continuing to tackle exciting challenges
+            as a Software Engineer.
           </Typography>
           <br />
           <br />
